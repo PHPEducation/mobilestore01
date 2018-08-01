@@ -17,4 +17,24 @@ class Product extends Model
     {
         return $this->morphMany('App\Image', 'imageable')
     }
+
+    public function orders ()
+    {
+        return $this->hasMany('App\Order');
+    }
+
+    public function warehouse ()
+    {
+        return $this->hasOne('App\Warehouse');
+    }
+
+    public function sales ()
+    {
+        return $this->hasMany('App\Sale');
+    }
+
+    public function reviews ()
+    {
+        return $this->morphMany('App\Review', 'reviewable');
+    }
 }

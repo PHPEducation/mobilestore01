@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategorizablesTable extends Migration
+class CreateWarehousesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateCategorizablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categorizables', function (Blueprint $table) {
+        Schema::create('warehouses', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category_id');
-            $table->integer('categorizable_id');
-            $table->string('categorizable_type');
+            $table->integer('quantity');
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateCategorizablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorizables');
+        Schema::dropIfExists('warehouses');
     }
 }

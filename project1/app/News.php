@@ -14,4 +14,14 @@ class News extends Model
     {
         return $this->morphToMany('App\Category', 'categorizable');
     }
+
+    public function reviews ()
+    {
+        return $this->hasMany('App\Review');
+    }
+
+    public function images ()
+    {
+        return $this->morphMany('App\Image', 'imageable')
+    }
 }

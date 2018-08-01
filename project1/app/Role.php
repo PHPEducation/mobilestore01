@@ -4,12 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Slide extends Model
+class Role extends Model
 {
+    //
     protected $guarded = ['id'];
 
-    public function images ()
+    public function users ()
     {
-        return $this->morphMany('App\Image', 'imageable')
+        return $this->hasMany('App\User');
     }
 }
