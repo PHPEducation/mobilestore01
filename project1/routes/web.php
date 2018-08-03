@@ -16,4 +16,7 @@ Auth::routes();
 Route::group(['prefix' => 'admin', 'middleware' => 'manager'], function() {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('logout', 'UserController@logout')->name('logout');
+Route::get('/{locale}', 'LocaleController@change_language')->name('set_locale');
+Route::group(['prefix' => '/', 'middleware' => 'locale'], function() {
+   //code
 });
