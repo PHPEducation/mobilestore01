@@ -10,7 +10,9 @@
 </head>
 <body>
     @include('admin.menu')
-    @yield('content')
+    <div class="container">
+        @yield('content')
+    </div>
 
  </body>
 </html>
