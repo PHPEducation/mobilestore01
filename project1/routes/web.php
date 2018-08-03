@@ -11,4 +11,8 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+
+Route::get('/{locale}', 'LocaleController@change_language')->name('set_locale');
+Route::group(['prefix' => '/', 'middleware' => 'locale'], function() {
+    Route::get('/', 'HomeController@index');
+});
