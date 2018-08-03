@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'name' => str_random(5),
-                'email' => str_random(5)."@gmail.com",
+                'email' => str_random(5) . '@gmail.com',
                 'password' => str_random(8),
                 'address' => 'Ha Noi',
                 'phone' => '113',
@@ -25,7 +25,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => str_random(5),
-                'email' => str_random(5)."@gmail.com",
+                'email' => str_random(5) . '@gmail.com',
                 'password' => str_random(8),
                 'address' => 'Sai Gon',
                 'phone' => '114',
@@ -35,7 +35,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => str_random(5),
-                'email' => str_random(5)."@gmail.com",
+                'email' => str_random(5) . '@gmail.com',
                 'password' => str_random(8),
                 'address' => 'Da Nang',
                 'phone' => '115',
