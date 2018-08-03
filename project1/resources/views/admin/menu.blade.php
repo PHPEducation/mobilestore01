@@ -9,7 +9,7 @@
                     </span>
                 </a>
             </li>
-            <li>
+            <li class="mt-3">
                 <a href="#">
                     <i class="fa fa-home fa-2x"></i>
                     <span class="nav-text">
