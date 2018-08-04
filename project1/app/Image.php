@@ -13,4 +13,17 @@ class Image extends Model
     {
         return $this->morphTo();
     }
+
+    public function scopeDeleteImage ($query, $imageable_type, $imageable_id)
+    {
+        try {
+            $image = Image::where('imageable_type', '=', 'App\Product')->where('imageable_id', '=', $imageable_id);
+            $image->delete();
+
+            return $image;
+        } catch (Exception $e) {
+            abort('404');
+        }
+        
+    }
 }

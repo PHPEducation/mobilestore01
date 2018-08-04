@@ -38,6 +38,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['manager', 'locale'], 'names
     Route::post('update-categories/{id}', 'CategoryController@update')->name('update-categories');
     Route::get('delete-categories/{id}', 'CategoryController@delete')->name('delete-categories');
     Route::get('categories', 'CategoryController@index')->name('categories');
+    //products
+    Route::get('add-products', 'ProductController@create')->name('add-products');
+    Route::post('store-products', 'ProductController@store')->name('store-products');
+    Route::get('edit-products/{id}', 'ProductController@edit')->name('edit-products');
+    Route::post('update-products/{id}', 'ProductController@update')->name('update-products');
+    Route::get('delete-products/{id}', 'ProductController@delete')->name('delete-products');
+    Route::get('products', 'ProductController@index')->name('products');
+
 });
 
 Route::get('/{locale}', 'LocaleController@change_language')->name('set_locale');
