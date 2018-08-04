@@ -11,6 +11,6 @@ class Accessory extends Model
     
     public function categories ()
     {
-        return $this->morphToMany('App\Category', 'categorizable');
+        return $this->belongsTo('App\Category');
     }
 }

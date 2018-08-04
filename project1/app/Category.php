@@ -10,14 +10,14 @@ class Category extends Model
     protected $guarded = ['id'];
 
     public function accessories () {
-        return $this->morphedByMany('App\Accessory', 'categorizable');
+        return $this->hasMany('App\Accessory');
     }
 
     public function products () {
-        return $this->morphedByMany('App\Product', 'categorizable');
+        return $this->hasMany('App\Product');
     }
     
     public function news () {
-        return $this->morphedByMany('App\New', 'categorizable');
+        return $this->hasMany('App\New');
     }
 }

@@ -11,7 +11,7 @@ class Product extends Model
 
     public function categories ()
     {
-        return $this->morphToMany('App\Category', 'categorizable');
+        return $this->belongsTo('App\Category');
     }
     
     public function images ()
