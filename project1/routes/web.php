@@ -45,6 +45,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['manager', 'locale'], 'names
     Route::post('update-products/{id}', 'ProductController@update')->name('update-products');
     Route::get('delete-products/{id}', 'ProductController@delete')->name('delete-products');
     Route::get('products', 'ProductController@index')->name('products');
+    Route::post('publish/product', 'ProductController@publish')->name('publish');
+    Route::get('products/show/{slug}', 'ProductController@show')->name('show_product');
 
 });
 
