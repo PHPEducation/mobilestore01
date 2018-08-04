@@ -13,6 +13,10 @@
     <div class="container">
         @yield('content')
     </div>
+    <div id="language">
+        <a href="{{ route('set_locale', ['locale' => 'vi']) }}"><img src="{{ asset('images/covietnam.jpg') }}"></a>
+        <a href="{{ route('set_locale', ['locale' => 'en']) }}"><img src="{{ asset('images/coanh.png') }}"></a>
+    </div>
 
  </body>
 </html>

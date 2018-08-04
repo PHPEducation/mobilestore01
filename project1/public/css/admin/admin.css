@@ -2,6 +2,9 @@
     padding: 0px;
     margin: 0pc;
 }
+body{
+    height: 100%;
+}
 .fa-2x {
     font-size: 1em !important;
     padding-top: 10px;
@@ -129,4 +132,18 @@ nav ul, nav li {
 #logo span img {
     transform: 0.5s;
     transition: 0.5s;
+}
+#language{
+    position: fixed;
+    top: 5px;
+    right: 5px;
+}
+#language a img{
+    width: 30px;
+}
+#navbar{
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    z-index: 10000;
 }
