@@ -25,7 +25,8 @@
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <input type="submit" value="{{ __('payment.submit') }}" class="btn -btn-success">
+                                <input type="submit" value="{{ __('payment.submit') }}" class="btn btn-success">
+                                 <a href="{{ route('categories') }}" class="btn btn-info ml-2">{{ __('category.back') }}</a>
                             </div>
                         </div>
                     {!! Form::close() !!}

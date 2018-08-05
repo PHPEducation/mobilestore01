@@ -17,9 +17,10 @@
                 </a>
             </li>
             <li class="has-subnav">
-                <a href="#">
+                <a href="{{ route('categories') }}">
                     <i class="fa fa-laptop fa-2x"></i>
                     <span class="nav-text">
+                        {{ __('home.categories') }}
                     </span>
                 </a>
             </li>
@@ -58,23 +59,28 @@
                     </span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                   <i class="fa fa-info fa-2x"></i>
-                    <span class="nav-text">
-                    </span>
-                </a>
-            </li>
+            @if(Auth::user()->role->name == 'manager')
+                <li>
+                    <a href="{{ route('mode-of-payments') }}">
+                       <i class="fa fa-info fa-2x"></i>
+                        <span class="nav-text">
+                            {{ __('home.payment') }}
+                        </span>
+                    </a>
+                </li>
+            @endif
         </ul>
-
-        <ul class="logout">
-            <li>
-               <a href="{{ route('logout') }}">
-                     <i class="fa fa-power-off fa-2x"></i>
-                    <span class="nav-text">
-                    </span>
-                </a>
-            </li>  
-        </ul>
+        @if(Auth::check())
+            <ul class="logout">
+                <li>
+                   <a href="{{ route('logout') }}">
+                         <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            {{ __('home.logout') }}
+                        </span>
+                    </a>
+                </li>  
+            </ul>
+        @endif
     </nav>
 </div>
