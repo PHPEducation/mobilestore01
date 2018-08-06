@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['manager', 'locale'], 'names
     Route::get('delete-mode-of-payments/{id}', 'PaymentController@delete')->name('delete-mode-of-payments');
     Route::get('mode-of-payments', 'PaymentController@index')->name('mode-of-payments');
 
+
     Route::get('add-catalogs', 'CatalogController@create')->name('add-catalogs');
     Route::post('store-catalogs', 'CatalogController@store')->name('create-catalogs');
     Route::get('edit-catalogs/{id}', 'CatalogController@edit')->name('edit-catalogs');
@@ -38,6 +39,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['manager', 'locale'], 'names
     Route::post('update-categories/{id}', 'CategoryController@update')->name('update-categories');
     Route::get('delete-categories/{id}', 'CategoryController@delete')->name('delete-categories');
     Route::get('categories', 'CategoryController@index')->name('categories');
+
     //products
     Route::get('add-products', 'ProductController@create')->name('add-products');
     Route::post('store-products', 'ProductController@store')->name('store-products');
@@ -45,6 +47,24 @@ Route::group(['prefix' => 'admin', 'middleware' => ['manager', 'locale'], 'names
     Route::post('update-products/{id}', 'ProductController@update')->name('update-products');
     Route::get('delete-products/{id}', 'ProductController@delete')->name('delete-products');
     Route::get('products', 'ProductController@index')->name('products');
+
+
+    Route::get('add-companies', 'CompanyController@create')->name('add-companies');
+    Route::post('store-companies', 'CompanyController@store')->name('create-companies');
+    Route::get('edit-companies/{id}', 'CompanyController@edit')->name('edit-companies');
+    Route::post('update-companies/{id}', 'CompanyController@update')->name('update-companies');
+    Route::get('delete-companies/{id}', 'CompanyController@delete')->name('delete-companies');
+    Route::get('companies', 'CompanyController@index')->name('companies');
+
+    Route::get('add-abouts', 'AboutController@create')->name('add-abouts');
+    Route::post('store-abouts', 'AboutController@store')->name('create-abouts');
+    Route::get('edit-abouts/{id}', 'AboutController@edit')->name('edit-abouts');
+    Route::post('update-abouts/{id}', 'AboutController@update')->name('update-abouts');
+    Route::get('delete-abouts/{id}', 'AboutController@delete')->name('delete-abouts');
+    Route::get('abouts', 'AboutController@index')->name('abouts');
+
+    //Route::resource('abouts', 'AboutController');
+
 
 });
 
