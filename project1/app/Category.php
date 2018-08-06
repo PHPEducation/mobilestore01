@@ -9,19 +9,16 @@ class Category extends Model
     //
     protected $guarded = ['id'];
 
-    public function accessories () 
-    {
-        return $this->morphedByMany('App\Accessory', 'categorizable');
+    public function accessories () {
+        return $this->hasMany('App\Accessory');
     }
 
-    public function products () 
-    {
-        return $this->morphedByMany('App\Product', 'categorizable');
+    public function products () {
+        return $this->hasMany('App\Product');
     }
     
-    public function news () 
-    {
-        return $this->morphedByMany('App\New', 'categorizable');
+    public function news () {
+        return $this->hasMany('App\New');
     }
 
     public function catalog ()
