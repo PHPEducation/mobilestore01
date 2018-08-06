@@ -20,4 +20,14 @@ class Category extends Model
     public function news () {
         return $this->hasMany('App\New');
     }
+
+    public function catalog ()
+    {
+        return $this->belongsTo(self::class, 'category_id');
+    }
+
+    public function categories ()
+    {
+        return $this->hasMany(self::class, 'category_id');
+    }
 }
