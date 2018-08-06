@@ -1,4 +1,7 @@
 <?php
     return [
-        'home'  =>  'Home'
+        'home' => 'Home',
+        'add' => 'Add',
+        'delete' => 'Delete',
+        'edit' => 'Edit'
     ];
