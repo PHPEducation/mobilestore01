@@ -25,9 +25,10 @@
                 </a>
             </li>
             <li class="has-subnav">
-                <a href="#">
+                <a href="{{ route('products') }}">
                    <i class="fa fa-list fa-2x"></i>
                     <span class="nav-text">
+                        {{ __('home.products') }}
                     </span>
                 </a>
             </li>

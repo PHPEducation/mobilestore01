@@ -27,6 +27,7 @@
                             <div class="row">
                                 <label for="name">{{ __('category.name_parent') }}</label>
                                 <select name="catalog" class="form-control">
+
                                     @if(isset($categories_parent) > 0)
                                         @foreach($categories_parent as $category_parent)
                                             <option value="{{ $category_parent['id'] }}">{{ $category_parent['name'] }}</option>

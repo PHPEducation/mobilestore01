@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Category extends Model
 {
@@ -29,5 +30,23 @@ class Category extends Model
     public function categories ()
     {
         return $this->hasMany(self::class, 'category_id');
+    }
+
+    public function scopeUpdateCategory($query, $arr, $id)
+    {
+        $category = Category::findOrFail($id);
+        $category = Category::update([
+            'name' => $arr->get('name'),
+            'slug' => Str::slug($arr->get('name')),
+            'category_id' => is_numeric($arr->get('catalog')) ? $arr->get('catalog') : null,
+        ]);
+
+        return $category;
+    }
+
+    public function scopeDeleteCategory($query, $id)
+    {
+        $category = Category::findOrFail($id);
+        $category->delete();
     }
 }
