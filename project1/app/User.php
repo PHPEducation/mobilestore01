@@ -59,4 +59,51 @@ class User extends Authenticatable
 
         return $user;
     }
+    public function scopeUpdateUser ($query, $user, $id)
+    {
+        try {
+            $currentUser = User::findOrFail($id);
+            $currentUser->update([
+                'name' => $user->get('name'),
+                'address' => $user->get('address'),
+                'phone' => $user->get('phone')
+            ]);
+
+            return $user;
+        } catch (Exception $e) {
+            abort('404');
+        }
+    }
+
+    public function scopeUpdatePassword($query, $user, $id)
+    {
+        try {
+            $currentUser = User::findOrFail($id);
+            $currentUser->update([
+                'password' => \Hash::make($user->get('password')),
+            ]);
+
+            return $user;
+        } catch (Exception $e) {
+            abort('404');
+        }
+    }
+
+    public function scopeRegisterUser($query, $user)
+    {
+        try {
+            $user = User::create([
+                'name' => $user->get('name'),
+                'email' => $user->get('email'),
+                'password' => Hash::make($user->get('password')),
+                'address' => $user->get('address'),
+                'phone' => $user->get('phone'),
+                'role_id' => $user->get('role'),
+            ]);
+
+            return $user;
+        } catch (Exception $e) {
+            abort('404');
+        }
+    }
 }

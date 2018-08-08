@@ -12,8 +12,8 @@
             <ul class="navbar-nav my-2 my-lg-0 ">
                 <li>
                     <div class="mt-1 mr-4">
-                        <a href=""><img src="" width="30px"></a>
-                        <a href=""><img src="" width="30px"></a>
+                        <a href="{{ route('set_locale', ['locale' => 'vi']) }}"><img src="{{ asset('images/covietnam.jpg') }}" class="img-lang"></a>
+                        <a href="{{ route('set_locale', ['locale' => 'en']) }}"><img src="{{ asset('images/coanh.png') }}" class="img-lang"></a>
                     </div>
                 </li>
                 <ion-icon name="logo-android"></ion-icon>
@@ -32,10 +32,23 @@
                 <ion-icon name="magnet"></ion-icon><li class="mr-2 mt-1 menu-item"><a href="#"></a></li>
             </ul>
             <div class="nav-item dropdown" id="member">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @if(Auth::check())
+                        {{ Auth::user()->name }}
+                    @else
+                        {{ __('key.menber') }}
+                    @endif
+                </a>
                 <div class=" dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown" >
-                    <a class="dropdown-item" href=""></a>
-                    <a class="dropdown-item" href="">{{ __('navbar.login') }}</a>
+                    @if(Auth::check())
+                        @can('update', Auth::user())
+                            <a class="dropdown-item" href="{{ route('user-show-profile', ['id' => Auth::user()->id]) }}">{{ __('user.profile') }}</a>
+                        @endcan
+                         <a class="dropdown-item" href="{{ url('logout') }}">{{ __('navbar.logout') }}</a>
+                    @else
+                        <a class="dropdown-item" href="{{ url('login') }}">{{ __('navbar.login') }}</a>
+                        <a class="dropdown-item" href="{{ url('register') }}">{{ __('navbar.register') }}</a>
+                    @endif
                 </div>
             </div>
         </div>

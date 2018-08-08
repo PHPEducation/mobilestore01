@@ -4,6 +4,7 @@
 }
 body{
     position: relative;
+    margin: 100px 0 0 0;
 }
 #menu > li:hover{
     cursor: pointer;
@@ -129,7 +130,6 @@ ion-icon{
     margin-top: 80px;
   }
 }
-#login-form{
-    margin-top: 100px;
-    margin-bottom: 80px;
+.img-lang{
+    width: 30px;
 }
