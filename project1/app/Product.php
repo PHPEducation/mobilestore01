@@ -14,7 +14,7 @@ class Product extends Model
 
     public function categories ()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo('App\Category', 'category_id');
     }
     
     public function images ()
@@ -82,5 +82,35 @@ class Product extends Model
         } catch(Exception $e) {
             abort('404');
         }
+    }
+
+    public function scopeUpdateProduct ($query, $request, $id)
+    {
+        $product = Product::where('id', $id)->firstOrFail();
+        if($request->get('status')) {
+            $status = 1;
+        } else {
+            $status = 0;
+        }
+        $product->update([
+            'name' => $request->get('name'),
+            'price' => $request->get('price'),
+            'ram' => $request->get('ram'),
+            'slug' => Str::slug($request->name, '-'),
+            'hard_disk' => $request->get('hard_disk'),
+            'cpu' => $request->get('cpu'),
+            'operating_system' => $request->get('operating_system'),
+            'pin' => $request->get('pin'),
+            'screen' => $request->get('screen'),
+            'description' => $request->get('description'),
+            'specification_more' => $request->get('specification_more'),
+            'status' => $status,
+            'category_id' => $request->get('category'),
+        ]);
+        $product->warehouse->update([
+            'quantity' => $request->get('qty'),
+        ]);
+
+        return $product;
     }
 }

@@ -18,6 +18,7 @@ var slyelement = {
         scrollBar: $('.scrollbar')
     }
 };
+
 $(function () {
     slyelement.obj = new Sly($(slyelement.el), slyelement.options);
     slyelement.obj.init();
@@ -26,6 +27,7 @@ $(function () {
 $(window).resize(function(e) {
     slyelement.obj.reload();
 });
+
 $(document).ready(function () {
     $('#images').on('change', function() {
         $('.slidee').html('');
@@ -35,11 +37,13 @@ $(document).ready(function () {
         }
     });
 });
-$(document).ready(function () {
+
+ $(document).ready(function () {
     var rs = Array();
     $('#catalog').change(function () {
         $('#category').html('');
-        var url = $(this).val() + '/categories';
+        var base_url = window.location.origin
+        var url = base_url + '/admin/' + $(this).val() + '/categories';
         $.ajax({
             url: url,
             type: 'GET',
@@ -51,3 +55,61 @@ $(document).ready(function () {
         });
     });
 });
+
+function publish(id, status)
+{
+    $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var url = 'publish/product';
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                id: id,
+                status: status
+            }
+        }).done(function(result) {
+            $('#onoffswitch' + result.id).html(` 
+                <input type='checkbox' name='status' checked class='onoffswitch-checkbox' id='myonoffswitch`  + result.id + `' onclick='unpublish(` + result.id + `, ` + result.status + `)'>
+                <label class='onoffswitch-label' for='myonoffswitch` + result.id + `'>
+                <span class='onoffswitch-inner'></span>
+                <span class='onoffswitch-switch'></span>
+            </label>`
+            );
+        });
+    });
+}
+
+function unpublish(id, status)
+{
+    $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var url = 'publish/product';
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                id: id,
+                status: status
+            }
+        }).done(function(result) {
+            $('#onoffswitch' + result.id).html(` 
+                <input type='checkbox' name='status' class='onoffswitch-checkbox' id='myonoffswitch`  + result.id + `' onclick='publish(` + result.id + `, ` + result.status + `)'>
+                <label class='onoffswitch-label' for='myonoffswitch` + result.id + `'>
+                <span class='onoffswitch-inner'></span>
+                <span class='onoffswitch-switch'></span>
+            </label>`
+            );
+        });
+    });
+}

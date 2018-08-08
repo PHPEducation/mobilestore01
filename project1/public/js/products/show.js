@@ -5,9 +5,12 @@ function show(url){
         $('.zoomWindowContainer div').stop().css('background-image', 'url(' + url + ')');
     });
 }
+
 $(function () {
     $('#rateYo').rateYo({
         rating: 2,
         fullStar: true
     });
 });
+
+$("#img-product").elevateZoom();
