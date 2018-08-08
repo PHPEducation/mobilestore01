@@ -1,6 +1,6 @@
 body{
     background-color: #F3F3F3;
-    padding-top: 80px;
+    padding-top: 30px;
 }
 .sub-img-product {
     border: 1px solid #ccccff;
@@ -46,6 +46,12 @@ body{
 .errors{
     color: red;
     display: none;
+}
+#qty-cart{
+    width: 150px;
+}
+#update-cart-icon:hover{
+    cursor: pointer;
 }
 @media screen and (max-width: 810px) {
     #content {

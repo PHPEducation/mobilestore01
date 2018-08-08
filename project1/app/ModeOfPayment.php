@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Mode_of_payment extends Model
+class ModeOfPayment extends Model
 {
     //
     protected $guarded = ['id'];

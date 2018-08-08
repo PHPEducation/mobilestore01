@@ -5,16 +5,16 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PaymentFormRequest;
-use App\Mode_of_payment;
+use App\ModeOfPayment;
 
 class PaymentController extends Controller
 {
     //
     public function index ()
     {
-        $mode_of_payments = Mode_of_payment::all();
+        $modeOfPayments = ModeOfPayment::all();
 
-        return view('admin.payments.index', compact('mode_of_payments'));
+        return view('admin.payments.index', compact('modeOfPayments'));
     }
 
     public function create ()
@@ -24,7 +24,7 @@ class PaymentController extends Controller
 
     public function store (PaymentFormRequest $request)
     {
-        Mode_of_payment::create([
+        ModeOfPayment::create([
             'name' => $request->get('name'),
         ]);
 
@@ -33,14 +33,14 @@ class PaymentController extends Controller
 
     public function edit ($id)
     {
-        $payment = Mode_of_payment::findOrFail($id);
+        $payment = ModeOfPayment::findOrFail($id);
         
         return view('admin.payments.edit', compact('payment'));
     }
 
     public function update (PaymentFormRequest $request, $id)
     {
-        $payment = Mode_of_payment::findOrFail($id);
+        $payment = ModeOfPayment::findOrFail($id);
         $payment->name = $request->get('name');
         $payment->save();
 
@@ -49,7 +49,7 @@ class PaymentController extends Controller
 
     public function delete ($id)
     {
-        $payment = Mode_of_payment::findOrFail($id);
+        $payment = ModeOfPayment::findOrFail($id);
         $payment->delete();
 
         return redirect()->route('mode-of-payments')->with('status', __('payment.deleted'));
