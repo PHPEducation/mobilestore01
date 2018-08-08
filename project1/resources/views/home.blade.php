@@ -76,51 +76,19 @@
         <div class="col-md-9" id="main">
             <div style="" class="pl-5 mt-4 title-product"><a href=""></a> / <a href=""></a></div>
             <div id="phone">
-                <div class="card ml-3 mt-4 card-product" >
-                    <img class="card-img-top" src="" alt="Card image cap" class="img-products-home">
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text"></p>
-                        <a href="#" class="btn btn-primary">{{ __('home.view') }}</a>
-                        <a href="#" class="btn btn-primary">{{ __('home.add_cart') }}</a>
-                    </div>
-                </div>
-                <div class="card ml-3 mt-4 card-product">
-                    <img class="card-img-top" src="" alt="Card image cap" class="img-products-home">
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text"></p>
-                        <a href="#" class="btn btn-primary">{{ __('home.view') }}</a>
-                        <a href="#" class="btn btn-primary">{{ __('home.add_cart') }}</a>
-                    </div>
-                </div>
-                <div class="card ml-3 mt-4 card-product">
-                    <img class="card-img-top" src="" alt="Card image cap" class="img-products-home">
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text"></p>
-                        <a href="#" class="btn btn-primary">{{ __('home.view') }}</a>
-                        <a href="#" class="btn btn-primary">{{ __('home.add_cart') }}</a>
-                    </div>
-                </div>
-                <div class="card ml-3 mt-4 card-product">
-                    <img class="card-img-top" src="" alt="Card image cap" class="img-products-home">
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text"></p>
-                        <a href="#" class="btn btn-primary">{{ __('home.view') }}</a>
-                        <a href="#" class="btn btn-primary">{{ __('home.add_cart') }}</a>
-                    </div>
-                </div>
-                <div class="card ml-3 mt-4 card-product" >
-                    <img class="card-img-top" src="" alt="Card image cap" class="img-products-home">
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text"></p>
-                        <a href="#" class="btn btn-primary">{{ __('home.view') }}</a>
-                        <a href="#" class="btn btn-primary">{{ __('home.add_cart') }}</a>
-                    </div>
-                </div>
+                @if($products)
+                    @foreach($products as $product)
+                        <div class="card ml-3 mt-4 card-product" >
+                            <img class="card-img-top" src="{{ asset('images/products/' . $product->images->first()->image) }}" alt="Card image cap" class="img-products-home">
+                            <div class="card-body">
+                                <h5 class="card-title text-center"><a href="{{ route('user-show-product', ['slug' => $product->slug]) }}">{{ $product->name }}</a></h5>
+                                <p class="card-text"></p>
+                                <a href="#" class="btn btn-primary">{{ __('view') }}</a>
+                                <a href="#" class="btn btn-primary">{{ __('add_cart') }}</a>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
                 <div class="clearfix"></div>
                 <nav aria-label="Page navigation example" class="mt-4 mr-5">
                     <ul class="pagination justify-content-end">

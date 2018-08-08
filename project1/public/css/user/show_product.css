@@ -11,7 +11,7 @@ body{
     cursor: pointer;
 }
 .star{
-    color: red;
+    color: yellow;
     font-size: 20px;
 }
 #comment_by{
@@ -42,6 +42,10 @@ body{
 }
 #comment{
     background-color: white;
+}
+.errors{
+    color: red;
+    display: none;
 }
 @media screen and (max-width: 810px) {
     #content {
