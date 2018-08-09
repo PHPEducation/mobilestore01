@@ -147,3 +147,19 @@ nav ul, nav li {
     height: 100%;
     z-index: 10000;
 }
+ #right-menu{
+    position: fixed;
+    top: 20%;
+    right: 10px;
+}
+#right-menu ul{
+    text-align: right;
+    background-color: white;
+}
+#right-menu ul li span{
+    transform: 1s;
+    margin-right: -200px;
+}
+#right-menu > ul > li:hover .text{
+    margin-right: 5px;
+}

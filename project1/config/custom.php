@@ -1,7 +1,8 @@
 <?php 
 
-	return [
-		'pagination' => [
-			'catalogs_table' => 15,
-		]
-	];
+    return [
+        'pagination' => [
+            'catalogs_table' => 10,
+            'users_table' => 10,
+        ]
+    ];

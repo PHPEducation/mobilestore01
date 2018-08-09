@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Hash;
 
 class User extends Authenticatable
 {
@@ -15,7 +16,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
+        'address',
+        'phone',
+        'role_id',
     ];
 
     /**
@@ -38,5 +44,19 @@ class User extends Authenticatable
     public function reviews ()
     {
         return $this->hasMany('App\Review');
+    }
+
+    public function scopeStoreUser($query, $user)
+    {
+        $user = User::create([
+            'name' => $user->get('name'),
+            'password' => Hash::make($user->get('password')),
+            'address' => $user->get('address'),
+            'email' => $user->get('email'),
+            'phone' => $user->get('phone'),
+            'role_id' => $user->get('role'),
+        ]);
+
+        return $user;
     }
 }

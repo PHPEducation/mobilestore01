@@ -60,7 +60,7 @@
                     </span>
                 </a>
             </li>
-            @if(Auth::user()->role->name == 'manager')
+            @if(Auth::user()->role->name == 'Manager')
                 <li>
                     <a href="{{ route('mode-of-payments') }}">
                        <i class="fa fa-info fa-2x"></i>
@@ -85,3 +85,21 @@
         @endif
     </nav>
 </div>
+@if(Auth::user()->role->name == 'Manager' || Auth::user()->role->name == 'Admin')
+    <div class="right-menu" id="right-menu">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="{{ route('admin-users') }}">
+                    <span class="text">{{ __('home.list_user') }}</span>
+                    <i class="fas fa-users"></i>
+                </a>
+            </li>
+            <li class="list-group-item">
+                 <a href="">
+                    <span class="text">{{ __('home.notify') }}</span>
+                    <i class="fas fa-bell"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+@endif

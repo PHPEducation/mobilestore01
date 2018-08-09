@@ -47,6 +47,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['manager', 'locale'], 'names
     Route::get('products', 'ProductController@index')->name('products');
     Route::post('publish/product', 'ProductController@publish')->name('publish');
     Route::get('products/show/{slug}', 'ProductController@show')->name('show_product');
+    //users
+    Route::get('add-users', 'UserController@create')->middleware('register')->name('admin-add-users');
+    Route::post('store-users', 'UserController@store')->middleware('register')->name('admin-store-users');
+    Route::get('edit-users/{id}', 'UserController@edit')->name('admin-edit-users');
+    Route::post('update-users/{id}', 'UserController@update')->name('admin-update-users');
+    Route::get('users', 'UserController@index')->name('admin-users');
+    Route::post('publish/user', 'UserController@publish')->name('publish');
+    Route::get('users-of-roles/{id}', 'UserController@usersOfRoles')->name('users-of-roles');
 
 });
 
