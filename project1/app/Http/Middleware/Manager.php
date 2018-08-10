@@ -18,6 +18,10 @@ class Manager
     {
         if(!Auth::check()) {
             return redirect('/login');
+        } else {
+            if(Auth::user()->role->name == 'User') {
+                return redirect('/');
+            }
         }
 
         return $next($request);
