@@ -72,10 +72,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['manager', 'locale'], 'names
     Route::post('update-abouts/{id}', 'AboutController@update')->name('update-abouts');
     Route::get('delete-abouts/{id}', 'AboutController@delete')->name('delete-abouts');
     Route::get('abouts', 'AboutController@index')->name('abouts');
-
-    //Route::resource('abouts', 'AboutController');
-
-
+    //slide
+    Route::get('add-slides', 'SlideController@create')->name('add-slides');
+    Route::post('store-slides', 'SlideController@store')->name('create-slides');
+    Route::get('delete-slides/{id}', 'SlideController@delete')->name('delete-slides');
+    Route::get('slides', 'SlideController@index')->name('slides');
 });
 
 Route::group(['prefix' => '/', 'middleware' => 'locale'], function() {

@@ -25,4 +25,22 @@ class UploadController extends Controller
 
         return $image;
     }
+
+    public static function slidesUploadImages ($imgs, $imageable_type)
+    {
+        $image = [];
+        foreach($imgs as $img)
+        {
+            $imageName = time() . '.' . $img->getClientOriginalName();
+            $img->move(public_path('images/slide'), $imageName);
+            $image[] = Image::create([
+                'image' => $imageName,
+                'imageable_id' => 0,
+                'of_slide' => 1,
+                'imageable_type' => $imageable_type
+            ]);
+        }
+
+        return $image;
+    }
 }

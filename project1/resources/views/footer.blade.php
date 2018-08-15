@@ -31,21 +31,20 @@
         <div class="col-md-4 float-left">
             <div>{{ __('footer.our_location') }}</div>
             <hr>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
+            <i class="fas fa-globe-americas float-left mr-2"></i><p class="float-left">{{ $company->name }}</p>
+            <div class="clearfix"></div>
+            <i class="fas fa-envelope float-left mr-2"></i><p class="float-left">{{ $company->email }}</p>
+            <div class="clearfix"></div>
+            <i class="fas fa-phone float-left mr-2"></i><p class="float-left">{{ $company->phone }}</p>
+            <div class="clearfix"></div>
+            <i class="fas fa-map-marker-alt float-left mr-2"></i><p class="float-left">{{ $company->address }}</p>
+            <div class="clearfix"></div>
         </div>
         {{-- end contact --}}
         <div class="col-md-3 float-left">
             <div>{{ __('footer.social_tile') }}</div>
             <hr>
-            <div>
-                <img src="" class="mr-1">
-                <img src="" class="mr-1">
-                <img src="" class="mr-1">
-                <img src="" class="mr-1"></div>
-            <div>{{ __('footer.social') }}</div>
+            <div>{{ substr($about->content, 0, 300) }}</div>
         </div>
         <div class="clearfix"></div>
     </div>
