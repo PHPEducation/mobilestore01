@@ -77,6 +77,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['manager', 'locale'], 'names
     Route::post('store-slides', 'SlideController@store')->name('create-slides');
     Route::get('delete-slides/{id}', 'SlideController@delete')->name('delete-slides');
     Route::get('slides', 'SlideController@index')->name('slides');
+
 });
 
 Route::group(['prefix' => '/', 'middleware' => 'locale'], function() {
@@ -93,7 +94,12 @@ Route::group(['prefix' => '/', 'middleware' => 'locale'], function() {
     Route::get('cart-delete/{id}', 'CartController@delete')->name('delete-product-in-cart');
     Route::get('cart-update/{id}', 'CartController@update')->name('cart-update');
     Route::get('enter-info', 'OrderDetailController@enterInfo')->name('enter-info');
-    Route::post('enter-info', 'OrderDetailController@order')->name('order');
+    Route::post('enter-info', 'OrderDetailController@addOrder')->name('addOrder');
+    Route::get('user-show-shopping-cart', 'OrderDetailController@boughtProducts')->name('user-show-shopping-cart');
+    //search products
+    Route::post('user-search-products', 'ProductController@search')->name('user-search-products');
+    Route::get('user-search-products/android', 'ProductController@searchAndroid')->name('user-search-products-android');
+    Route::get('user-search-products/apple', 'ProductController@searchApple')->name('user-search-products-apple');
 });
 
 Route::group(['prefix' => 'setLocale'], function() {
