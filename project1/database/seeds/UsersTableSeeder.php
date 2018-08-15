@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => str_random(5),
                 'email' => str_random(5) . '@gmail.com',
-                'password' => str_random(8),
+                'password' => Hash::make('matkhau'),
                 'address' => 'Ha Noi',
                 'phone' => '113',
                 'role_id' => 1,
@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => str_random(5),
                 'email' => str_random(5) . '@gmail.com',
-                'password' => str_random(8),
+                'password' => Hash::make('matkhau'),
                 'address' => 'Sai Gon',
                 'phone' => '114',
                 'role_id' => 2,
@@ -36,7 +36,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => str_random(5),
                 'email' => str_random(5) . '@gmail.com',
-                'password' => str_random(8),
+                'password' => Hash::make('matkhau'),
                 'address' => 'Da Nang',
                 'phone' => '115',
                 'role_id' => 3,
