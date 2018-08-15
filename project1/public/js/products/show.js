@@ -8,7 +8,7 @@ function show(url){
 
 $(function () {
     $('#rateYo').rateYo({
-        rating: 2,
+        rating: 0,
         fullStar: true
     });
 });

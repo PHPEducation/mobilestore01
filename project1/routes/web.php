@@ -84,7 +84,10 @@ Route::group(['prefix' => '/', 'middleware' => 'locale'], function() {
     Route::post('register', 'UserController@register')->name('user-register');
     Route::get('users-profile/{id}', 'UserController@show')->name('user-show-profile');
     Route::post('user-profile/{id}', 'UserController@update')->name('user-update-profile');
+    Route::get('user-show-product/{slug}', 'ProductController@show')->name('user-show-product');
+    Route::post('user-review', 'ReviewController@store')->name('user-review');
 });
+
 Route::group(['prefix' => 'setLocale'], function() {
     Route::get('/{locale}', 'LocaleController@change_language')->name('set_locale');
 });

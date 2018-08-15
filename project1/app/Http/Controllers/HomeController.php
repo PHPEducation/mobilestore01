@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class HomeController extends Controller
 {
@@ -18,7 +19,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $products = Product::whereStatus(config('custom.products.publish'))->get();
+
+        return view('home', compact('products'));
     }
 
     public function user_login ()

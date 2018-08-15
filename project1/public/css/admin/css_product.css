@@ -10,7 +10,7 @@ body{
     cursor: pointer;
 }
 .star{
-    color: red;
+    color: orange;
     font-size: 20px;
 }
 #comment_by{
@@ -18,7 +18,7 @@ body{
     color: #868686;
 }
 #configuration{
-    height: 450px;
+    height: auto;
 }
 .icon-ul{
     color: green;
