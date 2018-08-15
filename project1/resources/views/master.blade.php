@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/user/show_product.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/fontawesome/web-fonts-with-css/css/fontawesome.min.css') }}">
     <script type="text/javascript" src="{{ asset('bower_components/ionicons/docs/ionicons.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>

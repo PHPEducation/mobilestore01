@@ -132,3 +132,8 @@ ion-icon{
 .img-lang{
     width: 30px;
 }
+.noti-required {
+    font-size: 11px;
+    color: red;
+    margin-top: 2px;
+}

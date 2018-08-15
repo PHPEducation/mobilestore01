@@ -84,7 +84,7 @@
                                 <h5 class="card-title text-center"><a href="{{ route('user-show-product', ['slug' => $product->slug]) }}">{{ $product->name }}</a></h5>
                                 <p class="card-text"></p>
                                 <a href="#" class="btn btn-primary">{{ __('view') }}</a>
-                                <a href="#" class="btn btn-primary">{{ __('add_cart') }}</a>
+                                <a href="{{ route('add-to-cart', ['id' => $product->id]) }}" class="btn btn-primary">{{ __('add_cart') }}</a>
                             </div>
                         </div>
                     @endforeach

@@ -1,7 +1,9 @@
-<div class="noty text-center">
-    <div id="count-cart">1</div>
-    <ion-icon name="basket" id="icon-cart">
-</div>
+<a href="{{ route('all-cart') }}">
+    <div class="noty text-center">
+        <div id="count-cart">{{ Cart::count() }}</div>
+        <ion-icon name="basket" id="icon-cart">
+    </div>
+</a>
     <div id="avg" class="text-center">
         {{ __('footer.avg') }}
     </div>

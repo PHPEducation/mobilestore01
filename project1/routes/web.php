@@ -86,6 +86,13 @@ Route::group(['prefix' => '/', 'middleware' => 'locale'], function() {
     Route::post('user-profile/{id}', 'UserController@update')->name('user-update-profile');
     Route::get('user-show-product/{slug}', 'ProductController@show')->name('user-show-product');
     Route::post('user-review', 'ReviewController@store')->name('user-review');
+    //cart
+    Route::get('add-to-cart/{id}', 'CartController@add')->name('add-to-cart');
+    Route::get('all-cart', 'CartController@index')->name('all-cart');
+    Route::get('cart-delete/{id}', 'CartController@delete')->name('delete-product-in-cart');
+    Route::get('cart-update/{id}', 'CartController@update')->name('cart-update');
+    Route::get('enter-info', 'OrderDetailController@enterInfo')->name('enter-info');
+    Route::post('enter-info', 'OrderDetailController@order')->name('order');
 });
 
 Route::group(['prefix' => 'setLocale'], function() {

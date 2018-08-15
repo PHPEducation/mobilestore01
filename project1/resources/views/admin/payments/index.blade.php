@@ -15,7 +15,7 @@
                 <td>Edit</td>
                 <td>Delete</td>
             </tr>
-            @foreach($mode_of_payments as $payment)
+            @foreach($modeOfPayments as $payment)
                 <tr>
                     <td>{{ $payment->id }}</td>
                     <td>{{ $payment->name }}</td>

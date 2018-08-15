@@ -43,7 +43,7 @@
                         <div class="col-md-10">
                             <select class="form-control" id="category" name="category">
                                @foreach($categoryOfCatalog as $category)
-                                    <option value="{{ $category->id }}" {{ ($currentCategory == $category) ? 'selected' : '' }}>{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}" {{ ($currentCategory->id == $category->id) ? 'selected' : '' }}>{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div>
