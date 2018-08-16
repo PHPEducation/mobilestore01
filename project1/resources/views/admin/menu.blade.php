@@ -33,9 +33,10 @@
                 </a>
             </li>
             <li class="has-subnav">
-                <a href="#">
-                   <i class="fa fa-folder-open fa-2x"></i>
+                <a href="{{ route('slides') }}">
+                   <i class="fa fa-list fa-2x"></i>
                     <span class="nav-text">
+                        {{ __('home.slides') }}
                     </span>
                 </a>
             </li>
