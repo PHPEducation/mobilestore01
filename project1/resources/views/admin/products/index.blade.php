@@ -14,8 +14,8 @@
             <th scope="col">{{ __('product.price') }}</th>
             <th scope="col">{{ __('product.category') }}</th>
             <th scope="col">{{ __('product.status') }}</th>
-            <th scope="col">{{ __('key.edit') }}</th>
-            <th scope="col">{{ __('key.delete') }}</th>
+            <th scope="col">{{ __('product.edit') }}</th>
+            <th scope="col">{{ __('product.delete') }}</th>
         </tr>
         @foreach($products as $product)
             <tr>
@@ -57,11 +57,11 @@
                 </td>
                 <td>
                     <i class="far fa-edit mr-1"></i>
-                    <a href="{{ route('edit-products', ['id' => $product->id]) }}">{{ __('key.edit') }}</a>
+                    <a href="{{ route('edit-products', ['id' => $product->id]) }}">{{ __('product.edit') }}</a>
                 </td>
                 <td>
                     <i class="fas fa-trash-alt mr-1"></i>
-                    <a href="{{ route('delete-products', ['id' => $product->id]) }}">{{ __('key.delete') }}</a>
+                    <a href="{{ route('delete-products', ['id' => $product->id]) }}">{{ __('product.delete') }}</a>
                 </td>
             </tr>
         @endforeach

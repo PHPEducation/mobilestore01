@@ -7,7 +7,7 @@
                 <div class="alert alert-success">{{ session('status') }}</div>
             @endif
         </div>
-        <h1 class="col-md-12"> {{ __('payment.list') }} </h1>
+        <h1 class="col-md-12"> {{ __('category.payment') }} </h1>
         <table class="table table-striped table-hover table-bordered">
            <tr>
                 <td>ID</td>
@@ -24,5 +24,5 @@
                 </tr>
             @endforeach
         </table>
-        <a href="{{ route('add-mode-of-payment') }}" class="btn btn-success">{{ __('payment.add') }}</a>
+        <a href="{{ route('add-mode-of-payment') }}" class="btn btn-success">{{ __('key.add') }}</a>
 @endsection

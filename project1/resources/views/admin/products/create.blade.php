@@ -15,7 +15,7 @@
         {!! Form::open(['route' => 'store-products','method' => 'post', 'files' => true, 'enctype' => 'multipart/form-data']) !!}
             <div class="col-md-9 float-left">
                 <div class="form-group">
-                    <div class="col-md-2">
+                    <div class="col-md-8">
                         <label for="name">{{ __('product.name') }}</label>
                     </div>
                     <div class="col-md-10">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="form-row">
                     <div class="col-md-5 form-group">
-                        <div class="col-md-2">
+                        <div class="col-md-8">
                             <label for="catalog">{{ __('home.catalog') }}</label>
                         </div>
                         <div class="col-md-10">
@@ -37,8 +37,8 @@
                         </div>
                     </div>
                     <div class="col-md-6 form-group">
-                        <div class="col-md-2">
-                            <label for="catalog">{{ __('home.category') }}</label>
+                        <div class="col-md-8">
+                            <label for="catalog">{{ __('product.category') }}</label>
                         </div>
                         <div class="col-md-10">
                             <select class="form-control" id="category" name="category">
@@ -49,7 +49,7 @@
                 </div>
                 <div class="form-row">
                     <div class="col-md-5 form-group">
-                        <div class="col-md-2">
+                        <div class="col-md-8">
                             <label for="catalog">{{ __('product.price') }}</label>
                         </div>
                         <div class="col-md-10">
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                      <div class="col-md-6 form-group">
-                        <div class="col-md-2">
+                        <div class="col-md-8">
                             <label for="catalog">{{ __('product.ram') }}</label>
                         </div>
                         <div class="col-md-10">
@@ -67,7 +67,7 @@
                 </div>
                 <div class="form-row">
                     <div class="col-md-5 form-group">
-                        <div class="col-md-2">
+                        <div class="col-md-8">
                             <label for="catalog">{{ __('product.hard_disk') }}</label>
                         </div>
                         <div class="col-md-10">
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                      <div class="col-md-6 form-group">
-                        <div class="col-md-2">
+                        <div class="col-md-8">
                             <label for="catalog">{{ __('product.cpu') }}</label>
                         </div>
                         <div class="col-md-10">
@@ -85,7 +85,7 @@
                 </div>
                 <div class="form-row">
                     <div class="col-md-5 form-group">
-                        <div class="col-md-2">
+                        <div class="col-md-8">
                             <label for="catalog">{{ __('product.operating_system') }}</label>
                         </div>
                         <div class="col-md-10">
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                      <div class="col-md-6 form-group">
-                        <div class="col-md-2">
+                        <div class="col-md-8">
                             <label for="catalog">{{ __('product.pin') }}</label>
                         </div>
                         <div class="col-md-10">
@@ -103,7 +103,7 @@
                 </div>
                 <div class="form-row">
                     <div class="col-md-5 form-group">
-                        <div class="col-md-2">
+                        <div class="col-md-8">
                             <label for="catalog">{{ __('product.screen') }}</label>
                         </div>
                         <div class="col-md-10">
@@ -111,7 +111,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="col-md-2">
+                        <div class="col-md-8">
                             <label for="status">{{ __('product.status') }}</label>
                         </div>
                         <div class="col-md-10">
