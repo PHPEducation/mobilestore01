@@ -48,6 +48,7 @@ class OrderDetailController extends Controller
         } catch (Exception $e) {
             abort('404');
         }
+
     }
         
     public function statistical (Request $request)

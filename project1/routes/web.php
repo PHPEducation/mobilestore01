@@ -79,6 +79,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['manager', 'locale'], 'names
     Route::get('slides', 'SlideController@index')->name('slides');
 
 
+
+
+    Route::get('add-accessories', 'AccessoriesController@create')->name('add-accessories');
+    Route::post('store-accessories', 'AccessoriesController@store')->name('store-accessories');
+    Route::get('edit-accessories/{id}', 'AccessoriesController@edit')->name('edit-accessories');
+    Route::post('update-accessories/{id}', 'AccessoriesController@update')->name('update-accessories');
+    Route::get('delete-accessories/{id}', 'AccessoriesController@delete')->name('delete-accessories');
+    Route::get('accessories', 'AccessoriesController@index')->name('accessories');
+
+
 });
 
 Route::group(['prefix' => '/', 'middleware' => 'locale'], function() {
@@ -95,17 +105,23 @@ Route::group(['prefix' => '/', 'middleware' => 'locale'], function() {
     Route::get('cart-delete/{id}', 'CartController@delete')->name('delete-product-in-cart');
     Route::get('cart-update/{id}', 'CartController@update')->name('cart-update');
     Route::get('enter-info', 'OrderDetailController@enterInfo')->name('enter-info');
+
+
+    Route::post('enter-info', 'OrderDetailController@addOrder')->name('addOrder');
+
     Route::get('user-show-shopping-cart', 'OrderDetailController@boughtProducts')->name('user-show-shopping-cart');
     //search products
     Route::post('user-search-products', 'ProductController@search')->name('user-search-products');
     Route::get('user-search-products/android', 'ProductController@searchAndroid')->name('user-search-products-android');
     Route::get('user-search-products/apple', 'ProductController@searchApple')->name('user-search-products-apple');
+
     Route::post('enter-info', 'OrderDetailController@order')->name('order');
     Route::post('statistical', 'OrderDetailController@statistical')->name('statistical');
     Route::post('get-year-order', 'OrderDetailController@getYearOrder');
     Route::post('unpublish-order', 'OrderDetailController@unpublish');
     Route::get('order-success', 'OrderDetailController@orderSuccess')->name('order-success');
     Route::post('enter-info', 'OrderDetailController@addOrder')->name('add-order');
+
 });
 
 Route::group(['prefix' => 'setLocale'], function() {

@@ -48,6 +48,7 @@ class Order extends Model
                 ]);
             }
 
+
             return $order;
         } catch(Exception $e) {
             abort('404');
@@ -63,6 +64,7 @@ class Order extends Model
             ]);
             
             return $order;
+
         } catch (Exception $e) {
             abort('404');
         }
