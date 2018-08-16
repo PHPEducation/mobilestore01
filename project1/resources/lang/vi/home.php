@@ -14,5 +14,7 @@
         'notify' => 'Thông báo',
         'logout' => 'Đăng xuất',
         'login' => 'Đăng nhập',
-        'register' => 'Đăng ký'
+        'register' => 'Đăng ký',
+        'dashboard' => 'Quản lý',
+        'year' => 'Năm'
     ];

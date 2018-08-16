@@ -15,5 +15,7 @@
         'logout' => 'Logout',
         'login' => 'Login',
         'register' => 'Register',
-        'catalogs' => 'Catalogs'
+        'catalogs' => 'Catalogs',
+        'dashboard' => 'Dashboard',
+        'year' => 'Year'
     ];
