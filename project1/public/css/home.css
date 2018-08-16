@@ -140,3 +140,11 @@ ion-icon{
 .images-slide{
     height:400px;
 }
+.product-list{
+    position: relative;
+}
+.btn-add-cart{
+    position: fixed;
+    bottom: 2px;
+    left: 2px;
+}

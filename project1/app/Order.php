@@ -12,7 +12,7 @@ class Order extends Model
 
     public function mode_of_payment ()
     {
-        return $this->belongsTo('App\Mode_of_payment');
+        return $this->belongsTo('App\ModeOfPayment');
     }
 
     public function detail_orders ()
@@ -47,7 +47,22 @@ class Order extends Model
                     'quantity' => $item->qty
                 ]);
             }
-             return $order;
+
+            return $order;
+        } catch(Exception $e) {
+            abort('404');
+        }
+    }
+    
+    public function scopeUnpublish($query, $id)
+    {
+        try {
+            $order = Order::findOrFail($id);
+            $order->update([
+                'status' => 1
+            ]);
+            
+            return $order;
         } catch (Exception $e) {
             abort('404');
         }

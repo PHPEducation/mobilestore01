@@ -3,7 +3,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand mr-5" href="#"></a>
+        <a class="navbar-brand mr-5" href="{{ route('home-user') }}">{{ $company->name }}</a>
         {{ Form::open(['route' => 'user-search-products', 'class' => 'form-inline my-2 my-lg-0 mr-5']) }}
             {{ Form::text('search', '', ['class' => 'form-control mr-sm-2', 'placeholder' => 'Search']) }}
             {{ Form::submit('Search', ['class' => 'btn btn-outline-light my-2 my-sm-0']) }}

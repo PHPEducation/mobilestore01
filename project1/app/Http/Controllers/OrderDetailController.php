@@ -8,6 +8,7 @@ use App\Http\Requests\OrderProductFormRequest;
 use App\Order;
 use App\Detail_order;
 use Cart;
+use Carbon\Carbon;
 use Auth;
 
 class OrderDetailController extends Controller
@@ -47,6 +48,46 @@ class OrderDetailController extends Controller
         } catch (Exception $e) {
             abort('404');
         }
+    }
         
+    public function statistical (Request $request)
+    {
+        try {
+            $result = \DB::table('orders')->select(\DB::raw('MONTH(created_at) as month'), \DB::raw('SUM(total) as total'))->whereYear('created_at', $request->get('year'))->groupBy(\DB::raw('MONTH(created_at)'))->get();
+            if($request->ajax()) {
+
+                return response()->json($result);
+            }
+        } catch (Exception $e) {
+            abort('404');
+        }
+    }
+
+    public function getYearOrder(Request $request)
+    {
+        $result = \DB::table('orders')->select(\DB::raw('YEAR(created_at) as year'))->distinct()->get();
+
+        if($request->ajax()) {
+
+            return response()->json($result);
+        }
+    }
+
+    public function unpublish(Request $request)
+    {
+        $id = $request->get('id');
+        $updateOrder = Order::unpublish($id);
+
+        if($request->ajax()) {
+            
+            return response()->json($updateOrder);
+        }
+    }
+
+    public function orderSuccess()
+    {
+        $orders = Order::where('status', 1)->paginate(config('custom.pagination.orders_table'));
+
+        return view('users.showOrderDone', compact('orders'));
     }
 }
