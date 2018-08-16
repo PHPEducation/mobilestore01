@@ -14,7 +14,7 @@ class Product extends Model
 
     public function categories ()
     {
-        return $this->belongsTo('App\Category', 'category_id');
+        return $this->belongsTo('App\Category', 'category_id','id');
     }
     
     public function images ()
@@ -22,9 +22,9 @@ class Product extends Model
         return $this->morphMany('App\Image', 'imageable');
     }
 
-    public function orders ()
+    public function detailOrders ()
     {
-        return $this->hasMany('App\Order');
+        return $this->morphMany('App\Detail_order');
     }
 
     public function warehouse ()
