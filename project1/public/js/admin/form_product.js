@@ -38,7 +38,7 @@ $(document).ready(function () {
     });
 });
 
- $(document).ready(function () {
+$(document).ready(function () {
     var rs = Array();
     $('#catalog').change(function () {
         $('#category').html('');
@@ -51,6 +51,24 @@ $(document).ready(function () {
         }).done(function (result) {
             for (var i = 0; i < result.length; i++) {
                $('#category').append('<option value=' + result[i].id + '>' + result[i].name + '</option>');
+            }
+        });
+    });
+});
+
+$(document).ready(function () {
+    var rs = Array();
+    $('#category').change(function () {
+        $('#product').html('');
+        var base_url = window.location.origin
+        var url = base_url + '/admin/' + $(this).val() + '/products';
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+        }).done(function (result) {
+            for (var i = 0; i < result.length; i++) {
+               $('#product').append('<option value=' + result[i].id + '>' + result[i].name + '</option>');
             }
         });
     });

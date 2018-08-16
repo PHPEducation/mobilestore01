@@ -71,4 +71,12 @@ class CategoryController extends Controller
 
         return redirect()->route('categories')->with('status', __('category.deleted'));
     }
+    public function products (Request $request, $slug)
+    {
+        $category = Category::whereSlug($slug)->firstOrFail();
+        $products = $category->products;
+        if($request->ajax()) {
+            return response()->json($products);
+        }
+    }
 }

@@ -39,6 +39,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['manager', 'locale'], 'names
     Route::post('update-categories/{id}', 'CategoryController@update')->name('update-categories');
     Route::get('delete-categories/{id}', 'CategoryController@delete')->name('delete-categories');
     Route::get('categories', 'CategoryController@index')->name('categories');
+    Route::get('{slug}/products', 'CategoryController@products')->name('products_of_category');
+
 
     //products
     Route::get('add-products', 'ProductController@create')->name('add-products');
@@ -72,11 +74,35 @@ Route::group(['prefix' => 'admin', 'middleware' => ['manager', 'locale'], 'names
     Route::post('update-abouts/{id}', 'AboutController@update')->name('update-abouts');
     Route::get('delete-abouts/{id}', 'AboutController@delete')->name('delete-abouts');
     Route::get('abouts', 'AboutController@index')->name('abouts');
+
     //slide
     Route::get('add-slides', 'SlideController@create')->name('add-slides');
     Route::post('store-slides', 'SlideController@store')->name('create-slides');
     Route::get('delete-slides/{id}', 'SlideController@delete')->name('delete-slides');
     Route::get('slides', 'SlideController@index')->name('slides');
+
+
+
+    //Route::resource('abouts', 'AboutController');
+
+
+
+    Route::get('add-news', 'NewsController@create')->name('add-news');
+    Route::post('store-news', 'NewsController@store')->name('store-news');
+    Route::get('edit-news/{id}', 'NewsController@edit')->name('edit-news');
+    Route::post('update-news/{id}', 'NewsController@update')->name('update-news');
+    Route::get('delete-news/{id}', 'NewsController@delete')->name('delete-news');
+    Route::get('news', 'NewsController@index')->name('news');
+
+
+    Route::get('add-sales', 'SaleController@create')->name('add-sales');
+    Route::post('store-sales', 'SaleController@store')->name('store-sales');
+    Route::get('edit-sales/{id}', 'SaleController@edit')->name('edit-sales');
+    Route::post('update-sales/{id}', 'SaleController@update')->name('update-sales');
+    Route::get('delete-sales/{id}', 'SaleController@delete')->name('delete-sales');
+    Route::get('sales', 'SaleController@index')->name('sales');
+
+
 
 });
 
