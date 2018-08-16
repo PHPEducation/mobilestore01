@@ -14,6 +14,7 @@ class ProductController extends Controller
         try {
             $product = Product::findOrFail($slug);
             $reviews = Review::with('user')->where('reviewable_id' , $product->id)->where('reviewable_type', 'App\Product')->paginate(config('custom.pagination.reviews_table'));
+            $compare = Product::wherePrice($product->price)->get();
             if($request->ajax()) {
 
                 return response()->json($reviews);
@@ -24,7 +25,7 @@ class ProductController extends Controller
                 'view' => $view, 
             ]);
 
-            return view('users.showProduct', compact('product', 'reviews'));
+            return view('users.showProduct', compact('product', 'reviews', 'compare'));
         } catch (Exception $e) {
             abort('404');
         }
@@ -36,7 +37,7 @@ class ProductController extends Controller
             $key = $request->get('search');
             $products = Product::where('name', 'like', "%$key%")->paginate(config('custom.pagination.products_table'));
 
-            return view('users.searchProducts', compact('products'));
+            return view('users.searchProducts', compact('products', 'key'));
         } catch (Exception $e) {
             abort('404');
         }

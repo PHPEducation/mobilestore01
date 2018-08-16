@@ -32,19 +32,14 @@
                     <div><h3>{{ number_format($product->price) . ' đ' }}</h3></div>
                 </div>
                 <div class="card mt-3">
-                    <div class="card-header"></div>
+                    <div class="card-header">{{ __('product.description') }}</div>
                         <div class="card-body">
-                            <ul id="list-sales">
-                                <li><ion-icon name="gift" class="icon-ul mr-2"></ion-icon></li>
-                                <li><ion-icon name="gift" class="icon-ul mr-2"></ion-icon></li>
-                                <li><ion-icon name="gift" class="icon-ul mr-2"></ion-icon></li>
-                                <li><ion-icon name="gift" class="icon-ul mr-2"></ion-icon></li>
-                            </ul>
+                            {!! $product->description !!}
                         </div>
                     </div>
                 <div class="mt-4">
-                    <a href="#" class="btn btn-success col-md-6 float-left mr-2"></a>
-                    <a href="#" class="btn btn-info col-md-5 float-left"></a>
+                    <a href="#" class="btn btn-success col-md-6 float-left mr-2">{{ __('product.add_cart') }}</a>
+                    <a href="#" class="btn btn-info col-md-5 float-left">{{ __('product.back') }}</a>
                 </div>
             </div>
             <div class="col-md-3 mt-4 float-right">
@@ -149,29 +144,31 @@
     <!-- san pham tuong tu -->
     <div class="col-md-4 mt-4 float-left mb-5">
         <div class="row bg-white ml-3">
-                <div class="col-md-12 row justify-content-center mt-3"></div><br>
+                <div class="col-md-12 row justify-content-center mt-3">{{ __('product.list') }}</div><br>
                 <div class="col-md-12">
                     <hr>
                 </div>
-                <div class="product mb-3">
-                    <div class="img float-left">    
-                        <img src="" width="100px">
-                    </div>
-                    <div class="col-md-7 float-left">
-                        <b></b>
-                        <div class="mt-2 text-danger"><small><b></b></small></div>
-                        <div class="mt-2">
-                            <small><ul>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul></small>
+                @foreach($compare as $product)
+                    <div class="product mb-3">
+                        <div class="img float-left">    
+                            <img src="{{ asset('images/products/' . $product->images->first()->image) }}" class="img-p-c">
                         </div>
+                        <div class="col-md-7 float-left">
+                            <b></b>
+                            <div class="mt-2 text-danger"><small><b><a href="{{ route('user-show-product', ['slug' => $product->id]) }}">{{ $product->name }}</a></b></small></div>
+                            <div class="mt-2">
+                                <small><ul>
+                                    <li>{{ __('product.ram') }}&#58;&nbsp;{{ $product->ram }}</li>
+                                    <li>{{ __('product.operating_system') }}&#58;&nbsp;{{ $product->operating_system }}</li>
+                                    <li>{{ __('product.hard_disk') }}&#58;&nbsp;{{ $product->hard_disk }}</li>
+                                    <li>{{ __('product.pin') }}&#58;&nbsp;{{ $product->pin }}</li>
+                                    <li>{{ __('product.price') }}&#58;&nbsp;{{ $product->price }}</li>
+                                </ul></small>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-                    <div class="clearfix"></div>
-                </div>
+                @endforeach
             </div>
         </div>
     <div class="clearfix"></div>
