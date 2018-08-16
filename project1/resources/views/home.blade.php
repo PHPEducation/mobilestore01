@@ -43,7 +43,7 @@
         <div class="left-menu col-md-3 mt-5 mb-5">
             <div class="card card-left">
                 <div class="card-header">
-                    {{ __('home.catalogs') }}
+                    {{ __('home.catalog') }}
                 </div>
                 <ul class="list-group list-group-flush">
                     @foreach($catalogs as $catalog)
@@ -53,13 +53,37 @@
             </div>
             <div class="card mt-3 card-left">
                 <div class="card-header">
-                    {{ __('home.categories') }}
+                    {{ __('home.category') }}
                 </div>
                 <ul class="list-group list-group-flush">
                     @foreach($categories as $category)
-                        <li class="list-group-item"><a href="">{{ $category->name }}</a></li>
+                        <li class="list-group-item"><a href="{{ route('searchWithCategory', ['id' => $category->id]) }}">{{ $category->name }}</a></li>
                     @endforeach
                 </ul>
+            </div>
+            <div class="card mt-3 card-left">
+                <div class="card-header">
+                    {{ __('product.price') }}
+                </div>
+                <div class="card-body">
+                    {{ Form::open(['route' => 'user-search-products-by-price', 'class' => 'form-inline my-2 my-lg-0 mr-5']) }}
+                        <div class="form-group">
+                            <div class="row">
+                                {{ Form::text('from', '', ['class' => 'form-control mr-sm-2', 'placeholder' => 'From']) }}
+                            </div>
+                        </div>
+                        <div class="form-group mt-2">
+                            <div class="row">
+                                {{ Form::text('to', '', ['class' => 'form-control mr-sm-2', 'placeholder' => 'To']) }}
+                            </div>
+                        </div>
+                        <div class="form-group mt-2">
+                            <div class="row">
+                                {{ Form::submit('Search', ['class' => 'btn btn-success']) }}
+                            </div>
+                        </div>
+                    {!! Form::close() !!}       
+                </div>
             </div>
         </div>
         <div class="col-md-9" id="main">

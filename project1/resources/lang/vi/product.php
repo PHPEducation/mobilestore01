@@ -31,5 +31,8 @@
         'list_products' => 'Danh sách sản phẩm',
         'back' => 'Quay lại',
         'searchWithKey' => 'Tìm với từ khóa',
-        'description' => 'Miêu tả'
+        'description' => 'Miêu tả',
+        'searchFrom' => 'Tìm với gía từ',
+        'searchTo' => 'đến',
+        'searchWithcategory' => 'Sản phẩm trong danh mục'
     ];

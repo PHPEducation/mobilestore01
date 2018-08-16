@@ -7,6 +7,13 @@
             <div>{{ __('product.searchWithKey') }}&#58;&nbsp;&#34;{{ $key }}&#34;</div>
         @endif
         @foreach($products as $product)
+        @if(isset($from) && isset($to))
+            <div>{{ __('product.searchFrom') }}&#58;&nbsp;&#34;{{ $from }}&#34; {{ __('product.searchTo') }}&#58;&nbsp;&#34;{{ $to }}&#34;</div>
+        @endif
+        @if(isset($productsOfCategory))
+            <div>{{ __('product.searchWithcategory') }}&#58;&nbsp;&#34;{{ $category->name }}&#34;</div>
+        @endif
+        @foreach($productsOfCategory as $product)
             <div class="card ml-3 mt-4 card-product" >
                 <img class="card-img-top" src="{{ asset('images/products/' . $product->images->first()->image) }}" alt="Card image cap" class="img-products-home">
                 <div class="card-body">
@@ -16,7 +23,7 @@
                 </div>
             </div>
         @endforeach
-        {{ $products->links() }}
+        {{ $productsOfCategory->links() }}
         <div class="clearfix"></div>
         <div class="col-md-12">
             <a href="{{ route('home-user') }}" class="btn btn-success mt-5">{{ __('product.back') }}</a>
