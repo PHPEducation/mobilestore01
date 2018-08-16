@@ -31,7 +31,7 @@
 
         {{-- product --}}
         <div class="card mr-5 ml-3 card-hot card-product">
-            <img class="card-img-top" src="{{ isset($lastProduct->image) ? asset('images/products/' . $lastProduct->images->first()->image) : '' }}" alt="Card image cap" class="img-products-home">
+            <img class="card-img-top" src="{{ asset('images/products/' . $lastProduct->images->first()->image) }}" alt="Card image cap" class="img-products-home">
             <div class="card-body">
                 <h5 class="card-title">{{ $lastProduct->name }}</h5>
                 <a href="#" class="btn btn-primary">{{ __('view') }}</a>
@@ -65,13 +65,13 @@
             <div id="phone">
                 @if($products)
                     @foreach($products as $product)
-                        <div class="card ml-3 mt-4 card-product" >
-                            <img class="card-img-top" src="{{ isset($product->image) ? asset('images/products/' . $product->images->first()->image) : '' }}" alt="Card image cap" class="img-products-home">
+                        <div class="card ml-3 card-product row justify-content-center product-list" >
+                            <div class="text-center"><img src="{{ asset('images/products/' . $product->images->first()->image) }}" alt="Card image cap" class=" img-products-home card-img-top"></div>
                             <div class="card-body">
                                 <h5 class="card-title text-center"><a href="{{ route('user-show-product', ['slug' => $product->id]) }}">{{ $product->name }}</a></h5>
-                                <p class="card-text"></p>
-                                <a href="#" class="btn btn-primary">{{ __('view') }}</a>
-                                <a href="{{ route('add-to-cart', ['id' => $product->id]) }}" class="btn btn-primary">{{ __('add_cart') }}</a>
+                                <p class="card-text">{{ __('product.ram') }}{{ $product->ram }}</p>
+                                <p class="card-text">{{ __('product.operating_system') }}{{ $product->operating_system }}</p>
+                                <a href="{{ route('add-to-cart', ['id' => $product->id]) }}" class="btn btn-primary" class="btn-add-cart">{{ __('add_cart') }}</a>
                             </div>
                         </div>
                     @endforeach
@@ -87,13 +87,13 @@
             <div id="laptop">
                 @if($products_topview)
                     @foreach($products_topview as $product)
-                        <div class="card ml-3 mt-4 card-product" >
-                            <img class="card-img-top" src="{{ isset($product->image) ? asset('images/products/' . $product->images->first()->image) : '' }}" alt="Card image cap" class="img-products-home">
+                        <div class="card ml-3 card-product row justify-content-center" >
+                            <div class="text-center"><img src="{{ asset('images/products/' . $product->images->first()->image) }}" alt="Card image cap" class=" img-products-home card-img-top"></div>
                             <div class="card-body">
                                 <h5 class="card-title text-center"><a href="{{ route('user-show-product', ['slug' => $product->id]) }}">{{ $product->name }}</a></h5>
-                                <p class="card-text"></p>
-                                <a href="#" class="btn btn-primary">{{ __('view') }}</a>
-                                <a href="#" class="btn btn-primary">{{ __('add_cart') }}</a>
+                                <p class="card-text">{{ __('product.ram') }}{{ $product->ram }}</p>
+                                <p class="card-text">{{ __('product.operating_system') }}{{ $product->operating_system }}</p>
+                                <a href="{{ route('add-to-cart', ['id' => $product->id]) }}" class="btn btn-primary">{{ __('add_cart') }}</a>
                             </div>
                         </div>
                     @endforeach
