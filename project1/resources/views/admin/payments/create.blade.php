@@ -14,19 +14,19 @@
         </div>
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">{{ __('payment.create') }}</div>
+                <div class="card-header">{{ __('key.add') }}</div>
                 <div class="card-body">
                     {!! Form::open(['route' => 'create-mode-of-payment']) !!}
                         <div class="form-group">
                             <div class="row">
-                                <label for="name">{{ __('payment.name') }}</label>
+                                <label for="name">{{ __('category.name') }}</label>
                                 <input type="text" name="name" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
-                                <input type="submit" value="{{ __('payment.submit') }}" class="btn btn-success">
-                                 <a href="{{ route('categories') }}" class="btn btn-info ml-2">{{ __('category.back') }}</a>
+                                <input type="submit" value="{{ __('key.add') }}" class="btn btn-success">
+                                <a href="{{ route('mode-of-payments') }}" class="btn btn-info ml-2">{{ __('key.back') }}</a>
                             </div>
                         </div>
                     {!! Form::close() !!}

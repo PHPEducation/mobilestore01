@@ -1,0 +1,25 @@
+<?php
+    return [
+        'home' => 'Home',
+        'add' => 'Add Product',
+        'delete' => 'Delete Product',
+        'edit' => 'Edit Product',
+        'status' => 'Status',
+        'category' => 'Category',
+        'price' => 'Price',
+        'name' => 'Name',
+        'image' => 'Image',
+        'list' => 'List Product',
+        'ram' => 'Ram',
+        'operating_system' => 'Operating System',
+        'cpu' => 'CPU',
+        'hard_disk' => 'Hard Disk',
+        'pin' => 'Pin',
+        'screen' => 'Screen',
+        'qty' => 'Quantity',
+        'description' => 'Description',
+        'specification_more' => 'Specification More',
+        'add_title' => 'Add Product',
+        'warehouse' => 'Warehouse',
+        'images' => 'Images'
+    ];

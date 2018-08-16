@@ -163,3 +163,7 @@ nav ul, nav li {
 #right-menu > ul > li:hover .text{
     margin-right: 5px;
 }
+#canvas{
+    height: 280px;
+    width: 600px;
+}
