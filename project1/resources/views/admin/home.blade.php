@@ -6,7 +6,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="col-md-12">
-                    {{ Form::label('Year', 'Year', ['class' => 'col-md-1 float-left mt-2']) }}
+                    {{ Form::label('Year', __('home.year'), ['class' => 'col-md-1 float-left mt-2']) }}
                     {{ Form::select('year', [], [], ['class' => 'form-control col-md-10 float-left mb-3', 'id' => 'year']) }}
                     <div class="clearfix"></div>
                 </div>
