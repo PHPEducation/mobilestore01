@@ -21,5 +21,15 @@
         'specification_more' => 'Specification More',
         'add_title' => 'Add Product',
         'warehouse' => 'Warehouse',
-        'images' => 'Images'
+        'images' => 'Images',
+        'lastest' => 'Lastest',
+        'configuration' => 'Configuration',
+        'ratingAndComment' => 'Rating and Comment',
+        'allProductLastest' => 'Home/ Lastest Product',
+        'topview' => 'Home/ Top view',
+        'add_cart' => 'Add to Cart',
+        'list_products' => 'List products',
+        'back' => 'Back',
+        'searchWithKey' => 'Search with key',
+        'description' => 'Description'
     ];

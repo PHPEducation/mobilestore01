@@ -21,5 +21,15 @@
         'specification_more' => 'Thêm đăc điểm kỹ thuật',
         'add_title' => 'Thêm sản phẩm',
         'warehouse' => 'Kho chứa',
-        'images' => 'Ảnh'
+        'images' => 'Ảnh',
+        'lastest' => 'Mới nhất',
+        'configuration' => 'Cấu hình',
+        'ratingAndComment' => 'Đánh gía và nhận xét',
+        'allProductLastest' => 'Trang chủ/ Sản phẩm mới nhất',
+        'topview' => 'Trang chủ/ Sản phẩm được xem nhiều nhất',
+        'add_cart' => 'Thêm vào giỏ hàng',
+        'list_products' => 'Danh sách sản phẩm',
+        'back' => 'Quay lại',
+        'searchWithKey' => 'Tìm với từ khóa',
+        'description' => 'Miêu tả'
     ];

@@ -5,7 +5,7 @@
         'name' => 'Tên',
         'id' => 'ID',
         'slug' => 'Đường dẫn',
-        'list' => 'Danh sách danh mụch',
+        'list' => 'Danh sách danh mục',
         'payment' => 'Loại thanh toán',
         'add' => 'Thêm',
         'name_parent' => 'Loại',

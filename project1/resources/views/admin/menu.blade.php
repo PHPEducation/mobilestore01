@@ -19,15 +19,23 @@
             </li>
             <li class="has-subnav">
                 <a href="{{ route('categories') }}">
-                    <i class="fa fa-laptop fa-2x"></i>
+                    <i class="fa fa-align-right fa-2x"></i>
                     <span class="nav-text">
-                        {{ __('home.categories') }}
+                        {{ __('home.category') }}
+                    </span>
+                </a>
+            </li>
+            <li class="has-subnav">
+                <a href="{{ route('catalogs') }}">
+                    <i class="fa fa-list fa-2x"></i>
+                    <span class="nav-text">
+                        {{ __('home.catalog') }}
                     </span>
                 </a>
             </li>
             <li class="has-subnav">
                 <a href="{{ route('products') }}">
-                   <i class="fa fa-list fa-2x"></i>
+                   <i class="fa fa-laptop fa-2x"></i>
                     <span class="nav-text">
                         {{ __('home.products') }}
                     </span>
