@@ -16,5 +16,7 @@
         'login' => 'Đăng nhập',
         'register' => 'Đăng ký',
         'dashboard' => 'Quản lý',
-        'year' => 'Năm'
+        'year' => 'Năm',
+        'companies' => 'Công ty',
+        'abouts' => 'Về công ty'
     ];

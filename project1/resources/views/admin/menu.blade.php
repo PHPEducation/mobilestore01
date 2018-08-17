@@ -57,16 +57,18 @@
                 </a>
             </li>
             <li>
-               <a href="#">
+               <a href="{{ route('abouts') }}">
                    <i class="fa fa-table fa-2x"></i>
                     <span class="nav-text">
+                        {{ __('home.abouts') }}
                     </span>
                 </a>
             </li>
             <li>
-               <a href="#">
+               <a href="{{ route('companies') }}">
                     <i class="fa fa-map-marker fa-2x"></i>
                     <span class="nav-text">
+                        {{ __('home.companies') }}
                     </span>
                 </a>
             </li>

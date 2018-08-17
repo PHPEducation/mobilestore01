@@ -17,5 +17,7 @@
         'register' => 'Register',
         'catalogs' => 'Catalogs',
         'dashboard' => 'Dashboard',
-        'year' => 'Year'
+        'year' => 'Year',
+        'companies' => 'Companies',
+        'abouts' => 'Abouts',
     ];

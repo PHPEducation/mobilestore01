@@ -19,7 +19,7 @@
                     {!! Form::open([ 'route' => 'create-abouts' ]) !!}
                         <div class="form-group">
                             <div class="row">
-                                {!! Form::label('content', __('abouts.content') ) !!}
+                                {!! Form::label('content', __('key.content') ) !!}
                                 {!! Form::text('content', null, ['class' => 'form-control']) !!}
                             </div>
                         </div>
