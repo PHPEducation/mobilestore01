@@ -20,9 +20,9 @@
         @foreach($products as $product)
             <tr>
                 <td>
-                    <img src="{{ asset('images/products/' . $product->first()->images->first()->image) }}" width="100px" data-toggle="modal" data-target="#exampleModalLong" id="show-img-product">
+                    <img src="{{ asset('images/products/' . $product->images->first()->image) }}" width="100px" data-toggle="modal" data-target="#exampleModalLong{{ $product->id }}" id="show-img-product">
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal fade" id="exampleModalLong{{ $product->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -31,14 +31,14 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                            <div class="modal-body">
-                                @foreach($product->images as $key => $image)
-                                    <img src="{{ asset('images/products/' . $product->images[$key]->image) }}" width="100%" class="mb-5" class="list-img">
-                                @endforeach
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
+                                <div class="modal-body">
+                                    @foreach($product->images as $image)
+                                        <img src="{{ asset('images/products/' . $image->image) }}" width="100%" class="mb-5" class="list-img">
+                                    @endforeach
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>

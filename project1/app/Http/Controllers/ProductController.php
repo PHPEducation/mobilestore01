@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\SearchFormRequest;
+use App\Http\Requests\SearchByPriceFormRequest;
 use App\Product;
 use App\Review;
+use App\Category;
 
 class ProductController extends Controller
 {
@@ -35,7 +37,7 @@ class ProductController extends Controller
     {
         try {
             $key = $request->get('search');
-            $products = Product::where('name', 'like', "%$key%")->paginate(config('custom.pagination.products_table'));
+            $products = Product::where('name', 'like', "%$key%")->whereStatus(config('custom.products.publish'))->paginate(config('custom.pagination.products_table'));
 
             return view('users.searchProducts', compact('products', 'key'));
         } catch (Exception $e) {
@@ -46,7 +48,7 @@ class ProductController extends Controller
     public function searchAndroid ()
     {
         try {
-            $products = Product::where('operating_system', 'like', "android%")->paginate(config('custom.pagination.products_table'));
+            $products = Product::where('operating_system', 'like', "android%")->whereStatus(config('custom.products.publish'))->paginate(config('custom.pagination.products_table'));
 
             return view('users.showProductNav', compact('products'));
         } catch (Exception $e) {
@@ -57,9 +59,34 @@ class ProductController extends Controller
     public function searchApple ()
     {
         try {
-            $products = Product::where('operating_system', 'like', "apple%")->paginate(config('custom.pagination.products_table'));
+            $products = Product::where('operating_system', 'like', "apple%")->whereStatus(config('custom.products.publish'))->paginate(config('custom.pagination.products_table'));
 
             return view('users.searchProducts', compact('products'));
+        } catch (Exception $e) {
+            abort('404');
+        }
+    }
+
+    public function searchByPrice(SearchByPriceFormRequest $request)
+    {
+        try {
+            $from = $request->get('from');
+            $to = $request->get('to');
+            $products = Product::whereStatus(config('custom.products.publish'))->whereBetween('price', [$from, $to])->paginate(config('custom.pagination.products_table'));
+
+            return view('users.searchProducts', compact('products', 'from', 'to'));
+        } catch(Exception $e) {
+            abort('404');
+        }
+    }
+
+    public function searchWithCategory($id)
+    {
+        try {
+            $category = Category::findOrfail($id);
+            $productsOfCategory = Product::whereStatus(config('custom.products.publish'))->whereCategoryId($id)->paginate(config('custom.pagination.products_table'));
+
+            return view('users.searchProducts', compact('productsOfCategory', 'category'));
         } catch (Exception $e) {
             abort('404');
         }

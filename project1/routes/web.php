@@ -106,6 +106,8 @@ Route::group(['prefix' => '/', 'middleware' => 'locale'], function() {
     Route::post('unpublish-order', 'OrderDetailController@unpublish');
     Route::get('order-success', 'OrderDetailController@orderSuccess')->name('order-success');
     Route::post('enter-info', 'OrderDetailController@addOrder')->name('add-order');
+    Route::post('user-search-products-by-price', 'ProductController@searchByPrice')->name('user-search-products-by-price');
+    Route::get('searchWithCategory/{id}', 'ProductController@searchWithCategory')->name('searchWithCategory');
 });
 
 Route::group(['prefix' => 'setLocale'], function() {

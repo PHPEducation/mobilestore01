@@ -31,5 +31,8 @@
         'list_products' => 'List products',
         'back' => 'Back',
         'searchWithKey' => 'Search with key',
-        'description' => 'Description'
+        'description' => 'Description',
+        'searchFrom' => 'Search by price from',
+        'searchTo' => 'to',
+        'searchWithcategory' => 'Products of'
     ];
