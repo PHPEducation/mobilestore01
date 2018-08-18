@@ -17,7 +17,7 @@
             @foreach($slides as $slide)
                 <tr>
                     <td>
-                        <img src="{{ asset('images/slides' . $slide->image) }}">
+                        {{ Html::image('images/slide/' . $slide->image) }}
                     </td>
                     <td>
                         <span>{{ $slide->link }}</span>

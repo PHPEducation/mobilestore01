@@ -21,7 +21,7 @@
                 @foreach($cart as $row)               
                     <tr>
                         <td>{{ $row->id }}</td>
-                        <td><a href="{{ route('user-show-product', ['slug'=> $row->options->slug]) }}">{{ $row->name }}</a></td>
+                        <td>{{ link_to_route('user-show-product', $row->name, ['slug' => $row->id]) }}</td>
                         <td>{{ $row->price }}</td>
                         <td id="qty-cart">
                             {{ Form::number('qty', $row->qty, ['class' => 'col-md-8', 'id' => "qty$row->rowId"]) }}

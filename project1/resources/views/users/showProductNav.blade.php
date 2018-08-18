@@ -7,10 +7,10 @@
             <div class="card ml-3 mt-4 card-product" >
                 <img class="card-img-top" src="{{ asset('images/products/' . $product->images->first()->image) }}" alt="Card image cap" class="img-products-home">
                 <div class="card-body">
-                    <h5 class="card-title text-center"><a href="{{ route('user-show-product', ['slug' => $product->slug]) }}">{{ $product->name }}</a></h5>
+                    <h5 class="card-title text-center"><a href="{{ route('user-show-product', ['slug' => $product->id]) }}">{{ $product->name }}</a></h5>
+                    <div class="text-danger text-center"><small>{{ __('product.price') }}&#58;&nbsp;{{ $product->price }}</small></div>
                     <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">{{ __('view') }}</a>
-                    <a href="{{ route('add-to-cart', ['id' => $product->id]) }}" class="btn btn-primary">{{ __('add_cart') }}</a>
+                    {{ link_to_route('add-to-cart', $title = __('add_cart'), $parameters = ['id' => $product->id], $attributes = ['class' => 'btn btn-primary form-control']) }}
                 </div>
             </div>
         @endforeach

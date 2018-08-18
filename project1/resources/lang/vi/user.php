@@ -23,4 +23,5 @@
         'manager' => 'Quản lý',
         'admin' => 'Admin',
         'user' => 'Người dùng'
+        'loginComment' => 'Đăng nhập để đánh gía'
     ];

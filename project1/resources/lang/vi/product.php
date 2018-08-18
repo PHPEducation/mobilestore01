@@ -34,5 +34,10 @@
         'description' => 'Miêu tả',
         'searchFrom' => 'Tìm với gía từ',
         'searchTo' => 'đến',
-        'searchWithcategory' => 'Sản phẩm trong danh mục'
+        'searchWithcategory' => 'Sản phẩm trong danh mục',
+        'showMore' => 'Xem chi tiết',
+        'created' => 'Đã thêm thành công',
+        'deleted' => 'Đã xóa thành công',
+        'updated' => 'Đã sửa thành công',
+        'content' => 'Nội dung'
     ];

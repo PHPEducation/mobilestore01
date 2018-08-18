@@ -8,15 +8,24 @@ use App\Http\Requests\SearchByPriceFormRequest;
 use App\Product;
 use App\Review;
 use App\Category;
+use App\Repositories\ProductRepository;
 
 class ProductController extends Controller
 {
+    protected $model;
+
+    public function __construct (Product $product)
+    {
+        $this->model = new ProductRepository($product);
+    }
+
     public function show (Request $request, $slug)
     {
+
         try {
             $product = Product::findOrFail($slug);
             $reviews = Review::with('user')->where('reviewable_id' , $product->id)->where('reviewable_type', 'App\Product')->paginate(config('custom.pagination.reviews_table'));
-            $compare = Product::wherePrice($product->price)->get();
+            $compare = Product::wherePrice($product->price)->where('id', '!=', $product->id)->get();
             if($request->ajax()) {
 
                 return response()->json($reviews);
@@ -84,9 +93,9 @@ class ProductController extends Controller
     {
         try {
             $category = Category::findOrfail($id);
-            $productsOfCategory = Product::whereStatus(config('custom.products.publish'))->whereCategoryId($id)->paginate(config('custom.pagination.products_table'));
+            $products = $this->model->whereStatus(config('custom.products.publish'))->whereCategoryId($id)->paginate(config('custom.pagination.products_table'));
 
-            return view('users.searchProducts', compact('productsOfCategory', 'category'));
+            return view('users.searchProducts', compact('products', 'category'));
         } catch (Exception $e) {
             abort('404');
         }
