@@ -11,12 +11,16 @@
         <table class="table table-bordered table-hover">
            <tr>
                 <th scope="col">{{ __('slide.image') }}</th>
+                <th>{{ __('slide.link') }}</th>
                 <th id="slide-delete">{{ __('slide.delete') }}</th>
             </tr>
             @foreach($slides as $slide)
                 <tr>
                     <td>
                         <img src="{{ asset('images/slides' . $slide->image) }}">
+                    </td>
+                    <td>
+                        <span>{{ $slide->link }}</span>
                     </td>
                     <td><a href="{{ route('delete-slides', ['id' => $slide->id]) }}">{{ __('slide.delete') }}</a></td>
                 </tr>

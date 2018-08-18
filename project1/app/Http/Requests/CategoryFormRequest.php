@@ -25,7 +25,7 @@ class CategoryFormRequest extends FormRequest
     {
         return [
             //
-            'name' => 'required|min:3',
+            'name' => 'required|min:3|unique:categories',
             'catalog' => 'required'
         ];
     }
