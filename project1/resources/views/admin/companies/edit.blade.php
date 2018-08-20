@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">{{ __('companies.edit') }}</div>
+                <div class="card-header">{{ __('key.edit') }}</div>
                 <div class="card-body">
                     {!! Form::open([ 'route' => [ 'update-companies', $company->id ] ]) !!}
                         <div class="form-group">
@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <div class="row">
                                 {!! Form::submit( __('key.submit'), ['class' => 'btn btn-success mr-2'] ) !!}
-                                <a href="{{ route('companies') }}" class="btn btn-info">{{ __('companies.cancel') }}</a>
+                                <a href="{{ route('companies') }}" class="btn btn-info">{{ __('key.cancel') }}</a>
                             </div>
                         </div>
                     {!! Form::close() !!}

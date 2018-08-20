@@ -5,5 +5,11 @@
         'edit' => 'Edit',
         'delete' => 'Delete',
         'back' => 'Back',
-        'menber' => 'Menber'
+        'menber' => 'Menber',
+        'create' => 'Create',
+        'cancel' => 'Cancel',
+        'submit' => 'Submit',
+        'edit' => 'Edit',
+        'list' => 'List',
+        'content' => 'Content',
     ];

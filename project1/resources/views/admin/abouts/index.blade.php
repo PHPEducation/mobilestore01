@@ -11,7 +11,7 @@
         <table class="table table-striped table-hover table-bordered">
             <tr>
                 <th scope="col">ID</td>
-                <th scope="col">{{ __('abouts.name') }}</td>
+                <th scope="col">{{ __('key.content') }}</td>
                 <th scope="col">{{ __('key.edit') }}</td>
                 <th scope="col">{{ __('key.delete') }}</td>
             </tr>
