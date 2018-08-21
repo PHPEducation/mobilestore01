@@ -24,7 +24,8 @@ class SlideFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'images' => 'required'
+            'name' => 'required',
+            'link' => 'required'
         ];
     }
 }

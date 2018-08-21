@@ -15,11 +15,12 @@ class SlideController extends Controller
         return view('admin.slides.create');
     }
 
-    public function store (Request $request)
+    public function store (SlideFormRequest $request)
     {
         $file = $request->name;
         $imageable_type = 'App\Slide';
-        UploadController::slidesUploadImages($file, $imageable_type);
+        $link = $request->get('link');
+        UploadController::slidesUploadImages($file, $imageable_type, $link);
 
         return redirect()->back()->with('status', __('slide.created'));
     }

@@ -26,7 +26,7 @@ class UploadController extends Controller
         return $image;
     }
 
-    public static function slidesUploadImages ($imgs, $imageable_type)
+    public static function slidesUploadImages ($imgs, $imageable_type, $link)
     {
         $image = [];
         foreach($imgs as $img)
@@ -37,7 +37,8 @@ class UploadController extends Controller
                 'image' => $imageName,
                 'imageable_id' => 0,
                 'of_slide' => 1,
-                'imageable_type' => $imageable_type
+                'imageable_type' => $imageable_type,
+                'link' => $link
             ]);
         }
 

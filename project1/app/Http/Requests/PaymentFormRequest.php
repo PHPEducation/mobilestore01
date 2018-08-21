@@ -25,7 +25,7 @@ class PaymentFormRequest extends FormRequest
     {
         return [
             //
-            'name' => 'required|min:3'
+            'name' => 'required|min:3|unique:mode_of_payments'
         ];
     }
 }
