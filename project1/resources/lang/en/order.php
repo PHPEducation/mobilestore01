@@ -10,5 +10,7 @@
         'back' => 'Back',
         'statistical' => 'Statistical',
         'order_success' => 'Order success',
-        'success' => 'Order success'
+        'success' => 'Order success',
+        'hasNewOrder' => 'Have a new order',
+        'all-notify' => 'All notify'
     ];
