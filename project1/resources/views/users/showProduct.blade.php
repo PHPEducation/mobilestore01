@@ -38,8 +38,8 @@
                         </div>
                     </div>
                 <div class="mt-4">
-                    <a href="#" class="btn btn-success col-md-6 float-left mr-2">{{ __('product.add_cart') }}</a>
-                    <a href="#" class="btn btn-info col-md-5 float-left">{{ __('product.back') }}</a>
+                    {{ link_to_route('add-to-cart', $title = __('product.add_cart'), $parameters = ['id' => $product->id], $attributes = ['class' => 'btn btn-success col-md-6 float-left mr-2']) }}
+                    {{ link_to_route('home-user', $title =  __('product.back'), $parameters = [], $attributes = ['class' => 'btn btn-info col-md-5 float-left']) }}
                 </div>
             </div>
             <div class="col-md-3 mt-4 float-right">
@@ -54,9 +54,7 @@
                             <li class="list-group-item"><span>{{ __('product.screen') }}: </span>{{ $product->screen}}</li>
                             <li class="list-group-item"><span>{{ __('product.operating_system') }}: </span>{{ $product->operating_system }}</li>
                             <li class="list-inline-item mt-2">
-                                <button type="button" class="btn btn-primary ml-4" data-toggle="modal" data-target="#exampleModalLong">
-                                {{ __('product.show_more') }}
-                                </button>
+                                {{ Form::button(__('product.showMore'), ['class' => 'btn btn-primary form-control text-center', 'data-toggle' => 'modal', 'data-target' => '#exampleModalLong']) }}
                                 <!-- Modal -->
                                     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -109,38 +107,46 @@
             <div class="clearfix"></div>
         </div>
     </div>
-    <!-- comment -->
-    <div class="col-md-7 mt-4 mb-5 pt-5 pb-5 ml-5 float-left" id="comment">
-        <div>
-            <div class="title">{{ __('product.ratingAndComment') }} {{ $product->name }}</div>
-            <hr>
-            <div id="rateYo"></div>
-            <span  id="errors_rating" class="errors">{{ __('errors.required') }}</span>
-            <div class="content mt-3">
-                <textarea class="form-control" placeholder="Comment..." id="comment-content" required name="content"></textarea>
-                <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}">
-                <input type="hidden" name="reviewable_id" id="reviewable_id" value="{{ $product->id }}">
-                <input type="hidden" name="reviewable_type" id="reviewable_type" value="App\Product">
-                <span id="errors" class="errors">{{ __('errors.min_3') }}</span>
-                <button class="btn btn-danger mt-2" id="send">{{ __('comment.send') }}</button>
-            </div>
-        </div>
-        <div class="comments mt-5" id="reviews">
-            <div id="title-list-review">{{ __('review.title_review') }}</div>
-            @foreach($reviews as $review)
-                <div>
-                    <hr>
-                    @for($star = 0; $star < $review->rating; $star++)
-                       <ion-icon name="star" class="star"></ion-icon>
-                    @endfor
-                    <div id="comment_by">{{ __('review.by_user') }}<b>{{ $review->user->name }}</b> {{ __('review.at') }}  {{ $review->created_at }}</div>
-                    <div class="mt-2">{{ $review->content }}</div>
+    @if(Auth::check())
+        <!-- comment -->
+        <div class="col-md-7 mt-4 mb-5 pt-5 pb-5 ml-5 float-left" id="comment">
+            <div>
+                <div class="title">{{ __('product.ratingAndComment') }} {{ $product->name }}</div>
+                <hr>
+                <div id="rateYo"></div>
+                <span  id="errors_rating" class="errors">{{ __('errors.required') }}</span>
+                <div class="content mt-3">
+                    {{ Form::text('content', '', ['class' => 'form-control', 'placeholder' => __('product.content'), 'id' => 'comment-content']) }}
+                    @if(Auth::check())
+                        {{ Form::hidden('user_id', Auth::user()->id, ['id' => 'user_id']) }}
+                    @endif
+                    {{ Form::hidden('reviewable_id', $product->id, ['id' => 'reviewable_id']) }}
+                    {{ Form::hidden('reviewable_type', 'App\Product', ['id' => 'reviewable_type']) }}
+                    <span id="errors" class="errors">{{ __('errors.min_3') }}</span>
+                    {{ Form::button(__('comment.send'), ['class' => 'btn btn-danger mt-2', 'id' => 'send']) }}
                 </div>
-            @endforeach
+            </div>
+            <div class="comments mt-5" id="reviews">
+                <div id="title-list-review">{{ __('review.title_review') }}</div>
+                @foreach($reviews as $review)
+                    <div>
+                        <hr>
+                        @for($star = 0; $star < $review->rating; $star++)
+                           <ion-icon name="star" class="star"></ion-icon>
+                        @endfor
+                        <div id="comment_by">{{ __('review.by_user') }}<b>{{ $review->user->name }}</b> {{ __('review.at') }}  {{ $review->created_at }}</div>
+                        <div class="mt-2">{{ $review->content }}</div>
+                    </div>
+                @endforeach
+            </div>
+            <div id="more" class="btn btn-success mt-3" onclick="showMore()">{{ __('review.showmore') }}</div>
         </div>
-        <div id="more" class="btn btn-success mt-3" onclick="showMore()">{{ __('review.showmore') }}</div>
-    </div>
-    <!-- end comment -->
+        <!-- end comment -->
+    @else
+        <div class="col-md-7 mt-4 mb-5 pt-5 pb-5 ml-5 float-left" id="comment">
+            <a href="{{ route('login') }}" class="btn btn-info">{{ __('user.loginComment') }}</a>
+        </div>
+    @endif
     <!-- san pham tuong tu -->
     <div class="col-md-4 mt-4 float-left mb-5">
         <div class="row bg-white ml-3">

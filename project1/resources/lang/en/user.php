@@ -22,5 +22,6 @@
         'remember_me' => 'Remember me',
         'manager' => 'Manager',
         'admin' => 'Admin',
-        'user' => 'User'
+        'user' => 'User',
+        'loginComment' => 'Login to review'
     ];

@@ -45,6 +45,7 @@
                                     <div class="form-check">
                                         {{ Form::checkbox('remember', 'value', ['class' => 'form-check-input', old('remember') ? 'checked' : '']) }}
                                         {{ Form::label('remember', __('user.remember_me'), ['class' => 'form-check-label'] ) }}
+                                        {{ link_to_route('password.request', __('Forgot Your Password?'), [], ['class' => 'btn btn-link']) }}
                                     </div>
                                 </div>
                             </div>
@@ -52,10 +53,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     {{ Form::submit( __('user.login'), ['class' => 'btn btn-success']) }}
-
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
+                                    {{ link_to_route('home-user', __('key.back'), [], ['class' => 'btn btn-info']) }}
                                 </div>
                             </div>
                         {!! Form::close() !!}

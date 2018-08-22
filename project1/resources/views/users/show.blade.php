@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-    <div class="col-md-12 mb-3 mt-1 row justify-content-center">
+    <div class="col-md-12 mb-3 mt-5 row justify-content-center">
         <div class="col-md-6">
             @if(count($errors->all()))
                 @foreach($errors->all() as $error)

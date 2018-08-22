@@ -37,7 +37,8 @@
             <img class="card-img-top" src="{{ asset('images/products/' . $lastProduct->images->first()->image) }}" alt="Card image cap" class="img-products-home">
             <div class="card-body">
                 <h5 class="card-title text-center"><a href="{{ route('user-show-product', ['slug' => $lastProduct->id]) }}">{{ $lastProduct->name }}</a></h5>
-                <a href="#" class="btn btn-primary">{{ __('product.add_cart') }}</a>
+                <div class="text-danger text-center"><small>{{ __('product.price') }}&#58;&nbsp;{{ $lastProduct->price }}</small></div>
+                {{ link_to_route('add-to-cart', __('product.add_cart'), ['id' => $lastProduct->id], ['class' => 'btn btn-primary form-control']) }}
             </div>
         </div>
         <div class="left-menu col-md-3 mt-5 mb-5">
@@ -95,9 +96,10 @@
                             <div class="text-center"><img src="{{ asset('images/products/' . $product->images->first()->image) }}" alt="Card image cap" class=" img-products-home card-img-top"></div>
                             <div class="card-body">
                                 <h5 class="card-title text-center"><a href="{{ route('user-show-product', ['slug' => $product->id]) }}">{{ $product->name }}</a></h5>
+                                <div class="text-danger text-center"><small>{{ __('product.price') }}&#58;&nbsp;{{ $product->price }}</small></div>
                                 <p class="card-text">{{ __('product.ram') }}&#58;&nbsp;{{ $product->ram }}</p>
                                 <p class="card-text">{{ __('product.operating_system') }}&#58;&nbsp;{{ $product->operating_system }}</p>
-                                <a href="{{ route('add-to-cart', ['id' => $product->id]) }}" class="btn btn-primary" class="btn-add-cart">{{ __('product.add_cart') }}</a>
+                                {{ link_to_route('add-to-cart', __('product.add_cart'), ['id' => $product->id], ['class' => 'btn btn-primary form-control']) }}
                             </div>
                         </div>
                     @endforeach
@@ -117,9 +119,10 @@
                             <div class="text-center"><img src="{{ asset('images/products/' . $product->images->first()->image) }}" alt="Card image cap" class=" img-products-home card-img-top"></div>
                             <div class="card-body">
                                 <h5 class="card-title text-center"><a href="{{ route('user-show-product', ['slug' => $product->id]) }}">{{ $product->name }}</a></h5>
+                                <div class="text-danger text-center"><small>{{ __('product.price') }}&#58;&nbsp;{{ $product->price }}</small></div>
                                 <p class="card-text">{{ __('product.ram') }}&#58;&nbsp;{{ $product->ram }}</p>
                                 <p class="card-text">{{ __('product.operating_system') }}&#58;&nbsp;{{ $product->operating_system }}</p>
-                                <a href="{{ route('add-to-cart', ['id' => $product->id]) }}" class="btn btn-primary">{{ __('product.add_cart') }}</a>
+                                {{ link_to_route('add-to-cart', __('product.add_cart'), ['id' => $product->id], ['class' => 'btn btn-primary form-control']) }}
                             </div>
                         </div>
                     @endforeach

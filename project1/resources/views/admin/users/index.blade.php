@@ -26,7 +26,6 @@
                 <th scope="col">{{ __('user.address') }}</th>
                 <th scope="col">{{ __('user.phone') }}</th>
                 <th scope="col">{{ __('user.role') }}</th>
-                <th scope="col">{{ __('key.edit') }}</th>
             </tr>
             @foreach($users as $user)
                 <tr>
@@ -55,7 +54,6 @@
                      <td>{{ $user->address }}</td>
                     <td>{{ $user->phone }}</td>
                     <td>{{ $user->role->name }}</td>
-                    <td><a href="{{ url('admin/edit-users/' . $user->id) }}">{{ __('key.edit') }}</a></td>
                 </tr>
             @endforeach
         </table>

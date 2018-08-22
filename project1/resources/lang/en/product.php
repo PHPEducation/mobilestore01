@@ -34,5 +34,9 @@
         'description' => 'Description',
         'searchFrom' => 'Search by price from',
         'searchTo' => 'to',
-        'searchWithcategory' => 'Products of'
+        'searchWithcategory' => 'Products of',
+        'showMore' => 'Show more',
+        'created' => 'Created',
+        'deleted' => 'Deleted',
+        'content' => 'Content'
     ];
