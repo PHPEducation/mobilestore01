@@ -151,3 +151,6 @@ ion-icon{
 .img-p-c{
     width: 100px;
 }
+#notify:hover{
+    cursor: pointer;
+}

@@ -7,7 +7,8 @@
             'reviews_table' => 10,
             'products_table' => 6,
             'slides' => 10,
-            'orders_table' => 10
+            'orders_table' => 10,
+            'notifies_table' => 6
         ],
         'products' => [
             'publish' => 1

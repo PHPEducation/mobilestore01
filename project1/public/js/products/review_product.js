@@ -40,7 +40,7 @@ $(document).ready(function() {
             for(var star = 0; star < result.rating; star++) {
                 text += "<ion-icon name='star' class='star mt-1 mb-1'></ion-icon>";
             }
-            $("#title-list-review").append(
+            $("#preped-ajax").prepend(
             `<div>
                 <hr id='hr'>
                 ` + text + `
