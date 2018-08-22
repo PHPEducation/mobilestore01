@@ -157,3 +157,6 @@ ion-icon{
 .images-slide:hover {
     cursor: pointer;
 }
+#notify:hover{
+    cursor: pointer;
+}
