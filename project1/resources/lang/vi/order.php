@@ -11,5 +11,10 @@
         'statistical' => 'Thống kê',
         'done' => 'Xử lý xong',
         'order_success' => 'Mua hàng thành công',
-        'success' => 'Mua hàng thành công'
+        'success' => 'Mua hàng thành công',
+        'doing' => 'Đang xử lý',
+        'done' => 'Đã xử lý xong',
+        'detail' => 'Chi tiết',
+        'list-done' => 'Danh sách đơn hàng đã xử lý xong',
+        'waiting' => 'Đang chờ'
     ];

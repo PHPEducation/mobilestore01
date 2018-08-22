@@ -67,4 +67,18 @@ class Order extends Model
             abort('404');
         }
     }
+
+    public function scopeProcessed($query, $id)
+    {
+        try {
+            $order = Order::findOrFail($id);
+            $order->update([
+                'status' => 2
+            ]);
+
+            return $order;
+        } catch (Exception $e) {
+            abort('404');
+        }
+    }
 }
