@@ -20,7 +20,8 @@
     <div class="col-md-12 mt-5 mb-5">
         <div class="row justify-content-center"><h1>{{ __('list.orderWaiting') }}</h1></div>
         <div class="row justify-content-end">
-            <div><a href="{{ route('order-success') }}" class="btn btn-info mb-3">{{ __('order.done') }}</a></div>
+            <div>{{ link_to_route('order-success', __('order.doing'), [], ['class' => 'btn btn-info mb-3']) }}</div>
+            <div>{{ link_to_route('order.processed', __('order.done'), [], ['class' => 'btn btn-success ml-2 mb-3']) }}</div>
         </div>
         <table class="table table-bordered table-hover">
             <thead>
@@ -31,6 +32,7 @@
                     <th>{{ __('order.address') }}</th>
                     <th>{{ __('order.phone') }}</th>
                     <th>{{ __('order.modeOfPayment') }}</th>
+                    <th>{{ __('order.detail') }}</th>
                     <th>{{ __('order.done') }}</th>
                 </tr>
             </thead>
@@ -43,7 +45,9 @@
                         <td>{{ $order->address }}</td>
                         <td>{{ $order->phone }}</td>
                         <td>{{ $order->mode_of_payment->name }}</td>
-                        <td><button class="btn btn-success" id="done" onclick="orderDone({{ $order->id }})">{{ __('order.done') }}</button></td>
+                        <td>{{ link_to_route(route('detail.order', __('order.detail'), ['id' => $order->id])) }}</td>
+                        <td>{{ Form::button(__('order.doing'), ['id' => 'done', 'class' => 'btn btn-info', 'onclick' => "orderDone($order->id)"]) }}</td>
+                        <td>{{ Form::button(__('order.done'), ['id' => 'done2', 'class' => 'btn btn-success', 'onclick' => "processedOrder($order->id)"]) }}</td>
                     </tr>
                 @endforeach
             </tbody>

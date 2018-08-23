@@ -77,7 +77,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['manager', 'locale'], 'names
     Route::post('store-slides', 'SlideController@store')->name('create-slides');
     Route::get('delete-slides/{id}', 'SlideController@delete')->name('delete-slides');
     Route::get('slides', 'SlideController@index')->name('slides');
-
+    Route::get('detail-order/{id}', 'DetailOrderController@show')->name('detail.order');
+    Route::get('delete-order/{id}', 'OrderController@delete')->name('delete.order');
 
 });
 
@@ -104,7 +105,9 @@ Route::group(['prefix' => '/', 'middleware' => 'locale'], function() {
     Route::post('statistical', 'OrderDetailController@statistical')->name('statistical');
     Route::post('get-year-order', 'OrderDetailController@getYearOrder');
     Route::post('unpublish-order', 'OrderDetailController@unpublish');
+    Route::post('processed', 'OrderDetailController@processed');
     Route::get('order-success', 'OrderDetailController@orderSuccess')->name('order-success');
+    Route::get('order-processed', 'OrderDetailController@orderProcessed')->name('order.processed');
     Route::post('enter-info', 'OrderDetailController@addOrder')->name('add-order');
     Route::post('user-search-products-by-price', 'ProductController@searchByPrice')->name('user-search-products-by-price');
     Route::get('searchWithCategory/{id}', 'ProductController@searchWithCategory')->name('searchWithCategory');

@@ -53,7 +53,7 @@ class OrderDetailController extends Controller
     public function statistical (Request $request)
     {
         try {
-            $result = \DB::table('orders')->select(\DB::raw('MONTH(created_at) as month'), \DB::raw('SUM(total) as total'))->whereYear('created_at', $request->get('year'))->groupBy(\DB::raw('MONTH(created_at)'))->get();
+            $result = \DB::table('orders')->select(\DB::raw('MONTH(created_at) as month'), \DB::raw('SUM(total) as total'))->whereYear('created_at', $request->get('year'))->whereStatus(2)->groupBy(\DB::raw('MONTH(created_at)'))->get();
             if($request->ajax()) {
 
                 return response()->json($result);
@@ -84,10 +84,32 @@ class OrderDetailController extends Controller
         }
     }
 
+    public function processed (Request $request)
+    {
+        try {
+            $id = $request->get('id');
+            $updateOrder = Order::processed($id);
+
+            if($request->ajax()) {
+
+                return response()->json($updateOrder);
+            }
+        } catch (Exception $e) {
+            abort('404');
+        }
+    }
+
     public function orderSuccess()
     {
         $orders = Order::where('status', 1)->paginate(config('custom.pagination.orders_table'));
 
         return view('users.showOrderDone', compact('orders'));
+    }
+
+    public function orderProcessed()
+    {
+        $orders = Order::where('status', 2)->paginate(config('custom.pagination.orders_table'));
+
+        return view('users.showOrderProcessed', compact('orders'));
     }
 }
