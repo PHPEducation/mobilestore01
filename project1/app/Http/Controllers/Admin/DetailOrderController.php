@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Order;
 use App\Detail_order;
 use App\Repositories\DetailOrderRepository;
+use Auth;
 
 class DetailOrderController extends Controller
 {
@@ -24,6 +25,20 @@ class DetailOrderController extends Controller
             $detailOrders = $this->model->whereOrderId($order->id);
 
             return view('admin.detailOrders.show', compact('order', 'detailOrders'));
+        } catch (Exception $e) {
+            abort('404');
+        }
+    }
+
+    public function userShow($id)
+    {
+        try {
+            $user = Auth::user();
+            $this->authorize('update', $user);
+            $order = Order::findOrFail($id);
+            $detailOrders = $this->model->whereOrderId($order->id);
+
+            return view('users.detailOrders', compact('order', 'detailOrders'));
         } catch (Exception $e) {
             abort('404');
         }

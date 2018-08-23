@@ -45,7 +45,7 @@
                         <td>{{ $order->address }}</td>
                         <td>{{ $order->phone }}</td>
                         <td>{{ $order->mode_of_payment->name }}</td>
-                        <td>{{ link_to_route(route('detail.order', __('order.detail'), ['id' => $order->id])) }}</td>
+                        <td>{{ link_to_route('detail.order', __('order.detail'), ['id' => $order->id]) }}</td>
                         <td>{{ Form::button(__('order.doing'), ['id' => 'done', 'class' => 'btn btn-info', 'onclick' => "orderDone($order->id)"]) }}</td>
                         <td>{{ Form::button(__('order.done'), ['id' => 'done2', 'class' => 'btn btn-success', 'onclick' => "processedOrder($order->id)"]) }}</td>
                     </tr>

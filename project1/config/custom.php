@@ -9,6 +9,7 @@
             'slides' => 10,
             'orders_table' => 10,
             'notifies_table' => 6
+            'sales_table' => 10
         ],
         'products' => [
             'publish' => 1

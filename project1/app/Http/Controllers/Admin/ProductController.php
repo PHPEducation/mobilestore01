@@ -10,6 +10,7 @@ use App\Product;
 use App\Warehouse;
 use App\Image;
 use File;
+use App\Sale;
 use App\Http\Requests\ProductFormRequest;
 
 class ProductController extends Controller
@@ -90,8 +91,9 @@ class ProductController extends Controller
             $currentCatalog = $currentCategory->catalog;
             $categoryOfCatalog = Category::where('category_id', '=', $currentCatalog->id)->get();
             $warehouse = Warehouse::where('product_id', $product->id)->firstOrFail();
+            $sale = Sale::where('product_id', $product->id)->first();
 
-            return view('admin.products.edit', compact('catalogs', 'categories', 'product', 'currentCategory', 'currentCatalog', 'categoryOfCatalog', 'warehouse'));
+            return view('admin.products.edit', compact('catalogs', 'categories', 'product', 'currentCategory', 'currentCatalog', 'categoryOfCatalog', 'warehouse', 'sale'));
         } catch (Exception $e) {
             abort('404');
         }

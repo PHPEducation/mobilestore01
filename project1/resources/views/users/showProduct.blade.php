@@ -32,9 +32,13 @@
                     <div><h3>{{ number_format($product->price) . ' đ' }}</h3></div>
                 </div>
                 <div class="card mt-3">
-                    <div class="card-header">{{ __('product.description') }}</div>
+                    <div class="card-header">{{ __('product.sale') }}</div>
                         <div class="card-body">
-                            {!! $product->description !!}
+                            @if($product->sales->first())
+                                <div>{!! $product->sales->first()->content !!}</div>
+                            @else
+                                <h1>as</h1>
+                            @endif
                         </div>
                     </div>
                 <div class="mt-4">
@@ -93,7 +97,7 @@
                                                 </ul>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('product.close') }}</button>
+                                                {{ Form::button(__('product.close'), ['class' => 'btn btn-secondary', 'data-dismiss' => 'modal']) }}
                                             </div>
                                         </div>
                                     </div>

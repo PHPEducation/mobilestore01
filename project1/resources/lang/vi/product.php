@@ -39,5 +39,7 @@
         'created' => 'Đã thêm thành công',
         'deleted' => 'Đã xóa thành công',
         'updated' => 'Đã sửa thành công',
-        'content' => 'Nội dung'
+        'content' => 'Nội dung',
+        'sale' => 'Khuyến mãi',
+        'close' => 'Đóng'
     ];
