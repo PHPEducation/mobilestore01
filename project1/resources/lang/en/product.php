@@ -40,5 +40,8 @@
         'deleted' => 'Deleted',
         'content' => 'Content',
         'sale' => 'Sale',
-        'close' => 'Close'
+        'close' => 'Close',
+        'notProduct' => 'Dont have any left',
+        'gb' => 'GB',
+        'hardDisk' => 'Hard Disk',
     ];

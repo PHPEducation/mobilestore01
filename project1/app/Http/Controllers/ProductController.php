@@ -100,4 +100,52 @@ class ProductController extends Controller
             abort('404');
         }
     }
+
+    public function searchWithRam ($id)
+    {
+        try {
+            $products = $this->model->whereRam($id);
+            
+            return view('users.searchProducts', compact('products'));
+        } catch (Exception $e) {
+            abort('404');
+        }
+
+    }
+
+    public function searchWithHardDisk ($id)
+    {
+        try {
+            $products = $this->model->whereHardDisk($id);
+            
+            return view('users.searchProducts', compact('products'));
+        } catch (Exception $e) {
+            abort('404');
+        }
+
+    }
+
+    public function searchWithPin ($pin)
+    {
+        try {
+            $products = $this->model->wherePin($pin);
+            
+            return view('users.searchProducts', compact('products'));
+        } catch (Exception $e) {
+            abort('404');
+        }
+
+    }
+
+    public function searchWithScreen ($screen)
+    {
+        try {
+            $products = $this->model->whereScreen($screen);
+            
+            return view('users.searchProducts', compact('products'));
+        } catch (Exception $e) {
+            abort('404');
+        }
+
+    }
 }
