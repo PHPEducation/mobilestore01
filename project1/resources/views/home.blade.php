@@ -9,13 +9,14 @@
                     <li data-target="#demo" data-slide-to="0" class="active"></li>
                     <li data-target="#demo" data-slide-to="1"></li>
                     <li data-target="#demo" data-slide-to="2"></li>
+                    <li data-target="#demo" data-slide-to="3"></li>
                 </ul>
 
                 <!-- The slideshow -->
                 <div class="carousel-inner" id="carousel-inner">
                     @foreach($slides as $key => $slide)
                         <div class="carousel-item @if($key == 0) active @endif">
-                            <img src="{{ asset('images/slide/' . $slide->image) }}" alt="Los Angeles" class="images-slide">
+                            {{ Html::image(asset('images/slide/' . $slide->image), '', ['class' => 'images-slide', 'onclick' => "toLocation('$slide->link')"]) }}
                         </div>
                     @endforeach
                 </div>
@@ -137,4 +138,5 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="{{ asset('js/slide.js') }}"></script>
 @endsection

@@ -151,3 +151,9 @@ ion-icon{
 .img-p-c{
     width: 100px;
 }
+.images-slide {
+    width: 100%;
+}
+.images-slide:hover {
+    cursor: pointer;
+}
