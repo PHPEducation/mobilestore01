@@ -16,16 +16,11 @@
         {{ Form::open(['route' => 'create-slides', 'files' => true]) }}
             <div class="form-group">
                 <div class="row">
-                    {{ Form::file('name[]', $attributes = array('multiple' => true, 'class' => 'form-control', 'id' => 'images')) }}
+                    {{ Form::file('name', $attributes = ['class' => 'form-control', 'id' => 'images']) }}
                 </div>
             </div>
             <div class="frame">
                 <ul class="slidee">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
                     <li></li>
                 </ul>
             </div>

@@ -20,6 +20,11 @@ class SlideController extends Controller
         $file = $request->name;
         $imageable_type = 'App\Slide';
         $link = $request->get('link');
+        if (filter_var($link, FILTER_VALIDATE_URL)) {
+            $link = $link;
+        } else {
+            $link = url($link);
+        }
         UploadController::slidesUploadImages($file, $imageable_type, $link);
 
         return redirect()->back()->with('status', __('slide.created'));
