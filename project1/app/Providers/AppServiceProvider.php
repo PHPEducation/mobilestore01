@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use App\Company;
 use App\About;
+use App\Notify;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         View::share('company', Company::firstOrFail());
         View::share('about', About::firstOrFail());
+        View::share('notifies', Notify::OrderBy('id', 'DESC')->paginate(config('custom.pagination.notifies_table')));
+        View::share('countNotify', Notify::whereStatus(0)->OrderBy('id', 'DESC')->count());
     }
 
     /**

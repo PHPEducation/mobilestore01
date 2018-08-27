@@ -15,5 +15,7 @@
         'done' => 'Processed',
         'detail' => 'Detail',
         'list-done' => 'List order processed',
-        'waiting' => 'Waiting'
+        'waiting' => 'Waiting',
+        'hasNewOrder' => 'Have a new order',
+        'all-notify' => 'All notify',
     ];

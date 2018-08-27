@@ -10,6 +10,8 @@ use App\Detail_order;
 use Cart;
 use Carbon\Carbon;
 use Auth;
+use App\Notify;
+use App\Events\NotifyEvent;
 
 class OrderDetailController extends Controller
 {
@@ -27,6 +29,13 @@ class OrderDetailController extends Controller
             $total = (int)(str_replace(',', '', Cart::subtotal()));
             $user_id = Auth::check() ? Auth::user()->id : null;
             $order = Order::createOrder($request, $total, $user_id);
+            event(new NotifyEvent(__('order.hasNewOrder'), route('detail-order', ['id' => $order->id])));
+            $notify = [
+                'content' => __('order.hasNewOrder'),
+                'status' => 0,
+                'link' => route('detail-order', ['id' => $order->id])
+            ];
+            Notify::createNotify($notify);
             Cart::destroy();
 
             return view('users.buySuccess');

@@ -16,5 +16,7 @@
         'done' => 'Đã xử lý xong',
         'detail' => 'Chi tiết',
         'list-done' => 'Danh sách đơn hàng đã xử lý xong',
-        'waiting' => 'Đang chờ'
+        'waiting' => 'Đang chờ',
+        'hasNewOrder' => 'Có một đơn hàng mới',
+        'all-notify' => 'Tất cả thông báo',
     ];
