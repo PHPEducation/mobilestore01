@@ -113,3 +113,7 @@ function unpublish(id, status)
         });
     });
 }
+
+CKEDITOR.replace('description');
+CKEDITOR.replace('specification_more');
+CKEDITOR.replace('contentSale');

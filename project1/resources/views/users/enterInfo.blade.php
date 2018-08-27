@@ -1,3 +1,4 @@
+
 @extends('master')
 
 @section('content')
@@ -7,7 +8,7 @@
                 <div class="card text-center">
                     <div class="card-header">{{ __('cart.choosePayment') }}</div>
                     <div class="card-body">
-                        {{ Form::open(['route' => 'add-order', 'method' => 'post']) }}
+                        {{ Form::open(['route' => 'product.add_order', 'method' => 'post']) }}
                             <div class="form-group">
                                 <div class="row">
                                     {{ Form::label('name', __('user.name') ) }}<span class="noti-required">&nbsp;(*)</span>

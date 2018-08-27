@@ -169,13 +169,70 @@
                 </div>
             </div>
         {!! Form::close() !!}
+        <div class="mt-3">
+            <div class="card">
+                <div class="card-header">{{ __('product.sale') }}</div>
+                <div class="card-body">
+                    @if($sale)
+                        {{ Form::open(['route' => ['sales.update', 'id' => $sale->id], 'method' => 'PUT']) }}
+                            <div class="form-group">
+                                <div class="row">
+                                    {{ Form::label('priceSale', __('product.price')) }}
+                                    {{ Form::number('priceSale', $sale->price, ['class' => 'form-control']) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    {{ Form::label('contentSale', __('product.content')) }}
+                                    <div class="col-md-12">
+                                        {{ Form::textarea('contentSale', $sale->content, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+                            </div>
+                            {{ Form::hidden('product_id', $product->id) }}
+                            <div class="form-group">
+                                <div class="row">
+                                    {{ Form::submit(__('product.editSale'), ['class' => 'btn btn-info']) }}
+                                </div>
+                            </div>
+                        {{ Form::close() }}
+                    @else
+                        {{ Form::open(['route' => 'sales.store', 'method' => 'POST']) }}
+                            <div class="form-group">
+                                <div class="row">
+                                    {{ Form::label('priceSale', __('product.price')) }}
+                                    {{ Form::number('priceSale', null, ['class' => 'form-control']) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    {{ Form::label('contentSale', __('product.content')) }}
+                                    <div class="col-md-12">
+                                        {{ Form::textarea('contentSale', null, ['class' => 'form-control']) }}
+                                    </div>
+                                </div>
+                            </div>
+                            {{ Form::hidden('product_id', $product->id) }}
+                            <div class="form-group">
+                                <div class="row">
+                                    {{ Form::submit(__('product.createSale'), ['class' => 'btn btn-info']) }}
+                                </div>
+                            </div>
+                        {{ Form::close() }}
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="mt-2">
+            @if($sale)
+                {{ Form::open(['route' => ['sales.destroy', 'id' => $sale->id], 'method' => 'delete']) }}
+                    {{ Form::submit(__('product.deleteSale'), ['class' => 'btn btn-info', 'method' => 'delete']) }}
+                {{ Form::close() }}
+            @endif
+        </div>
     </div>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/form_product.css') }}">
     <script type="text/javascript" src="{{ asset('js/admin/form_product.js') }}"></script>
-    <script type="text/javascript">
-        CKEDITOR.replace('description');
-        CKEDITOR.replace('specification_more');
-    </script>
     <script type="text/javascript" src="{{ asset('bower_components/sly/dist/sly.min.js') }}"></script>
 @endsection

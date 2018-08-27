@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Warehouse;
+use App\Sale;
 use Illuminate\Support\Str;
 use DB;
 
@@ -67,6 +68,11 @@ class Product extends Model
         Warehouse::create([
             'quantity' => $product->get('qty'),
             'product_id' => $productNew->id,
+        ]);
+        Sale::create([
+            'price' => $product->get('priceSale'),
+            'content' => $product->get('contentSale'),
+            'product_id' => $productNew->id
         ]);
 
         return $productNew;

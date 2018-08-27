@@ -59,7 +59,9 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     @foreach($categories as $category)
-                        <li class="list-group-item"><a href="{{ route('searchWithCategory', ['id' => $category->id]) }}">{{ $category->name }}</a></li>
+                        <li class="list-group-item">
+                            {{ link_to_route('search_with.category', $category->name, ['id' => $category->id]) }}
+                        </li>
                     @endforeach
                 </ul>
             </div>
@@ -68,7 +70,7 @@
                     {{ __('product.price') }}
                 </div>
                 <div class="card-body">
-                    {{ Form::open(['route' => 'user-search-products-by-price', 'class' => 'form-inline my-2 my-lg-0 mr-5']) }}
+                    {{ Form::open(['route' => 'search_with.price', 'class' => 'form-inline my-2 my-lg-0 mr-5']) }}
                         <div class="form-group">
                             <div class="row">
                                 {{ Form::text('from', '', ['class' => 'form-control mr-sm-2', 'placeholder' => 'From']) }}

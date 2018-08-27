@@ -33,7 +33,7 @@ class OrderDetailController extends Controller
             $notify = [
                 'content' => __('order.hasNewOrder'),
                 'status' => 0,
-                'link' => route('detail-order', ['id' => $order->id])
+                'link' => route('detail.order', ['id' => $order->id])
             ];
             Notify::createNotify($notify);
             Cart::destroy();

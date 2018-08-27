@@ -38,5 +38,7 @@
         'showMore' => 'Show more',
         'created' => 'Created',
         'deleted' => 'Deleted',
-        'content' => 'Content'
+        'content' => 'Content',
+        'sale' => 'Sale',
+        'close' => 'Close'
     ];
