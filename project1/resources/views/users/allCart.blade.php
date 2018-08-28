@@ -22,12 +22,12 @@
                     <tr>
                         <td>{{ $row->id }}</td>
                         <td>{{ link_to_route('user-show-product', $row->name, ['slug' => $row->id]) }}</td>
-                        <td>{{ $row->price }}</td>
+                        <td>{{ number_format($row->price) }}</td>
                         <td id="qty-cart">
                             {{ Form::number('qty', $row->qty, ['class' => 'col-md-8', 'id' => "qty$row->rowId"]) }}
                             <i class="fas fa-sync" onclick="updateCart('{{ $row->rowId }}', '{{ __('cart.alert') }}')" id="update-cart-icon"></i>
                         </td>
-                        <td id="money{{$row->rowId}}">{{ $row->price * $row->qty }}</td>
+                        <td id="money{{$row->rowId}}">{{ number_format($row->price * $row->qty) }}&nbsp;{{ __('cart.vnd') }}</td>
                         <td>
                             <i class="fa fa-trash"></i>
                             <a href="{{ route('delete-product-in-cart', ['id' => $row->rowId]) }}">{{ __('cart.delete') }}</a>
@@ -44,7 +44,7 @@
         </div>
         <div>
             <h3>{{ __('cart.count') }}<span id="count-products">&#58;&nbsp;{{ Cart::count() }}</span></h3>
-            <h3>{{ __('cart.total') }}<span id="total">&#58;&nbsp;{{ Cart::subtotal() }}&nbsp;{{ __('cart.vnd') }}</span></h3>
+            <h3>{{ __('cart.total') }}<span id="total">&#58;&nbsp;{{ number_format((int)(str_replace(',', '', Cart::subtotal()))) }}&nbsp;{{ __('cart.vnd') }}</span></h3>
         </div>
     </div>
     <script type="text/javascript" src="{{ asset('js/cart_update.js') }}"></script>

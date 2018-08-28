@@ -22,6 +22,6 @@
         'remember_me' => 'Nhớ tài khoản',
         'manager' => 'Quản lý',
         'admin' => 'Admin',
-        'user' => 'Người dùng'
+        'user' => 'Người dùng',
         'loginComment' => 'Đăng nhập để đánh gía'
     ];

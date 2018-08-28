@@ -41,5 +41,8 @@
         'updated' => 'Đã sửa thành công',
         'content' => 'Nội dung',
         'sale' => 'Khuyến mãi',
-        'close' => 'Đóng'
+        'close' => 'Đóng',
+        'notProduct' => 'Hết hàng',
+        'gb' => 'GB',
+        'hardDisk' => 'Ổ cứng',
     ];
