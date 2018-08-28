@@ -11,6 +11,7 @@ class Notify extends Model
     public function scopeCreateNotify ($query, $data)
     {
         $notify = Notify::create($data);
-         return $notify;
+        
+        return $notify;
     }
 }
