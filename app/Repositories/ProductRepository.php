@@ -52,6 +52,26 @@ class ProductRepository implements RepositoryInterface
         return $this->model->whereCategoryId($id);
     }
 
+    public function whereRam ($ram)
+    {
+        return $this->model->whereRam($ram)->paginate(config('custom.pagination.products_table'));
+    }
+
+    public function whereHardDisk ($hardDisk)
+    {
+        return $this->model->where('hard_disk', 'like', $hardDisk)->paginate(config('custom.pagination.products_table'));
+    }
+
+    public function wherePin ($pin)
+    {
+        return $this->model->where('pin', 'like', $pin)->paginate(config('custom.pagination.products_table'));
+    }
+
+    public function whereScreen ($screen)
+    {
+        return $this->model->where('screen', 'like', $screen)->paginate(config('custom.pagination.products_table'));
+    }
+
     public function setModel ($model)
     {
         $this->model = $model;

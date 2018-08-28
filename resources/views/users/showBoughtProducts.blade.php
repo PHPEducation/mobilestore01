@@ -32,7 +32,11 @@
                         <td><a href="{{ route('user_detail.order', ['id' => $order->id]) }}">{{ __('order.detail') }}</a></td>
                         <td>@if($order->status == 0) {{ __('order.waiting
 ') }} @elseif($order->status == 1) {{ __('order.doing') }} @else {{ __('order.done') }} @endif</td>
-                        <td><a href="{{ route('delete.order', ['id' => $order]) }}">{{ __('key.delete') }}</a></td>
+                       @if($order->status == 0)
+                            <td>
+                                {{ link_to_route('delete.order', __('key.delete'), ['id' => $order]) }}
+                            </td>
+                        @endif
                     </tr>
                 @endforeach
             </tbody>

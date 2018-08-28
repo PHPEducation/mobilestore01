@@ -30,7 +30,12 @@ class HomeController extends Controller
         $categories = Category::whereNotNull('category_id')->get();
         $slides = Image::where('of_slide', 1)->orderBy('id', 'DESC')->take(4)->get();
 
-        return view('home', compact('products', 'lastProduct', 'products_topview', 'catalogs', 'categories', 'slides'));
+        $rams = Product::distinct('ram')->orderBy('ram', 'DESC')->pluck('ram');
+        $hardDisks = Product::distinct('hard_disk')->orderBy('hard_disk', 'DESC')->pluck('hard_disk');
+        $pins = Product::distinct('pin')->orderBy('pin', 'DESC')->pluck('pin');
+        $screens = Product::distinct('screen')->orderBy('screen', 'DESC')->pluck('screen');
+        
+        return view('home', compact('products', 'lastProduct', 'products_topview', 'catalogs', 'categories', 'slides', 'rams', 'hardDisks', 'pins', 'screens'));
     }
 
     public function user_login ()

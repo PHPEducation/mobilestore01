@@ -116,6 +116,11 @@ Route::group(['prefix' => '/', 'middleware' => 'locale'], function() {
     Route::post('user-search-products-by-price', 'ProductController@searchByPrice')->name('search_with.price');
     Route::get('searchWithCategory/{id}', 'ProductController@searchWithCategory')->name('search_with.category');
     Route::get('detail-order/{id}', 'Admin\DetailOrderController@userShow')->name('user_detail.order')->middleware('auth');
+
+    Route::get('searchWithRam/{ram}', 'ProductController@searchWithRam')->name('product.ram');
+    Route::get('searh-with-hard-disk/{hardDisk}', 'ProductController@searchWithHardDisk')->name('product.hard_disk');
+    Route::get('searh-with-pin/{pin}', 'ProductController@searchWithPin')->name('product.pin');
+    Route::get('searh-with-screen/{screen}', 'ProductController@searchWithScreen')->name('product.screen');
 });
 
 Route::group(['prefix' => 'setLocale'], function() {
