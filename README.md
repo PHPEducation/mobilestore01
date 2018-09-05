@@ -23,6 +23,7 @@ Người dùng có thể:
 Admin có thể:
   - Xem thống kê doanh số thu được theo mỗi tháng
   - Xem tình trạng xử lý các đơn hàng
+  - Xem các đơn hàng
   - Xoá đơn hàng (thông báo realtime cho chủ nhân đơn hàng)
   - Xử lý các đơn hàng
   - Quản lý user
