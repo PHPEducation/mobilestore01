@@ -12,6 +12,7 @@ Website bao gồm các chức năng sau:
 ### Người dùng:
 Người dùng có thể: 
   - Login( đăng ký mới hoặc login với google), Register, Logout
+  - Xem và chỉnh sửa profile
   - Xem chi tiết sản phẩm
   - Tìm kiếm theo danh mục, tên, Ram, Bộ nhớ, màn hình, pin
   - Order sản phẩm (thông báo realtime cho admin)
