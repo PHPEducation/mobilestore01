@@ -46,7 +46,7 @@ username: testadmin@gmail.com
 password: admin
 
 - User:
-username: testuser@gmail.com
+username: user@test.com
 password: user
 
 - Manager:
